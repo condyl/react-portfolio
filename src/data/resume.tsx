@@ -131,6 +131,26 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "TurboKnots Web Interface",
+      href: "https://cariboutests.com/games/knots",
+      dates: "May 2024 - August 2024",
+      active: true,
+      description:
+        "Created an interactive web interface for Thomas Wolf's mathematical knots program TurboKnots using PHP and JavaScript.",
+      technologies: ["JavaScript", "PHP", "SQLite", "JQuery"],
+      links: [
+        {
+          type: "Website",
+          href: "https://brocktimetable.com",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/knoteditor.png",
+      video: "",
+      companyName: "Brock University",
+      companyLogo: "/brocku.png",
+    },
+    {
       title: "BrockU Automatic Course Planner",
       href: "https://brocktimetable.com",
       dates: "March 2024 - Present",
@@ -152,6 +172,28 @@ export const DATA = {
       ],
       image: "/brocktimetable.png",
       video: "",
+      companyName: "",
+      companyLogo: "",
+    },
+    {
+      title: "Packing Game",
+      href: "https://cariboutests.com/games/packing.php",
+      dates: "January 2024 - April 2024",
+      active: true,
+      description:
+        "Lead development of a 3D interactive math game which teaches students how to pack 3D shapes into a box.",
+      technologies: ["JavaScript", "Three.js", "PHP", "SQL"],
+      links: [
+        {
+          type: "Website",
+          href: "https://cariboutests.com/games/packing.php",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/packing.png",
+      video: "",
+      companyName: "Caribou Contests",
+      companyLogo: "/caribou.svg",
     },
     {
       title: "Ruby Discord Bot",
@@ -170,6 +212,33 @@ export const DATA = {
       ],
       image: "/rubybot.png",
       video: "",
+      companyName: "",
+      companyLogo: "",
+    },
+    {
+      title: "Terminal Portfolio",
+      href: "https://terminal-portfolio-flame.vercel.app/",
+      dates: "Febuary 2024 - Febuary 2024",
+      active: true,
+      description:
+        "Created a terminal portfolio using HTML, CSS, and JavaScript.",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      links: [
+        {
+          type: "Website",
+          href: "https://terminal-portfolio-flame.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "GitHub",
+          href: "https://github.com/condyl/terminal-portfolio",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/terminalportfolio.png",
+      video: "",
+      companyName: "",
+      companyLogo: "",
     },
     {
       title: "Recipe Discord Bot",
@@ -178,7 +247,7 @@ export const DATA = {
       active: true,
       description:
         "Developed a Discord bot which allows users to search for recipes and display ingredients and instructions.",
-      technologies: ["JavaScript", "Discord.js"],
+      technologies: ["Java", "Java Discord API"],
       links: [
         {
           type: "GitHub",
@@ -188,6 +257,8 @@ export const DATA = {
       ],
       image: "/recipebot.png",
       video: "",
+      companyName: "",
+      companyLogo: "",
     },
   ],
   hackathons: [

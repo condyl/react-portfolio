@@ -26,6 +26,8 @@ interface Props {
     href: string;
   }[];
   className?: string;
+  companyName?: string; // New optional property
+  companyLogo?: string; // New optional property
 }
 
 export function ProjectCard({
@@ -39,7 +41,10 @@ export function ProjectCard({
   video,
   links,
   className,
+  companyName, // Destructure new property
+  companyLogo, // Destructure new property
 }: Props) {
+  console.log(companyName, companyLogo);
   return (
     <Card
       className={
@@ -48,6 +53,7 @@ export function ProjectCard({
     >
       <Link
         href={href || "#"}
+        target="_blank"
         className={cn("block cursor-pointer", className)}
       >
         {video && (
@@ -81,6 +87,23 @@ export function ProjectCard({
             {description}
           </Markdown>
         </div>
+        {/* Conditionally render affiliation section */}
+        {companyName && companyLogo && (
+          <a href="#work">
+            <div className="mt-2 flex items-center space-x-2" >
+              <Image
+                src={companyLogo}
+                alt={`${companyName} logo`}
+                width={24}
+                height={24}
+                className="object-contain"
+              />
+              <span className="text-xs text-muted-foreground">
+                Affiliated with {companyName}
+              </span>
+            </div>
+          </a>
+        )}
       </CardHeader>
       <CardContent className="mt-auto flex flex-col px-2">
         {tags && tags.length > 0 && (
