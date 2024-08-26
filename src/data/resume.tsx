@@ -159,7 +159,7 @@ export const DATA = {
       dates: "March 2024 - June 2024",
       active: true,
       description:
-        "Designed, developed and sold animated UI components for developers.",
+        "Created a Discord bot which allows users to display Valorant stats, recent matches, and more.",
       technologies: ["JavaScript", "Discord.js"],
       links: [
         {
@@ -169,6 +169,24 @@ export const DATA = {
         },
       ],
       image: "/rubybot.png",
+      video: "",
+    },
+    {
+      title: "Recipe Discord Bot",
+      href: "https://github.com/condyl/recipe-discord-bot",
+      dates: "May 2023 - May 2023",
+      active: true,
+      description:
+        "Developed a Discord bot which allows users to search for recipes and display ingredients and instructions.",
+      technologies: ["JavaScript", "Discord.js"],
+      links: [
+        {
+          type: "GitHub",
+          href: "https://github.com/condyl/recipe-discord-bot",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/recipebot.png",
       video: "",
     },
   ],
