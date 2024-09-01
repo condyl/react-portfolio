@@ -166,7 +166,7 @@ export const DATA = {
         },
         {
           type: "GitHub",
-          href: "https://github.com/iOlivers/BrockVisualTimeTable",
+          href: "https://github.com/Oli-vers/BrockVisualTimeTable",
           icon: <Icons.github className="size-3" />,
         },
       ],
