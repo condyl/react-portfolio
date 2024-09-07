@@ -69,6 +69,7 @@ export default function Page() {
                 badges={work.badges}
                 period={`${work.start} - ${work.end ?? "Present"}`}
                 description={work.description}
+                id={work.id}
               />
             </BlurFade>
           ))}
@@ -92,6 +93,7 @@ export default function Page() {
                 title={education.school}
                 subtitle={education.degree}
                 period={`${education.start} - ${education.end}`}
+                id={education.id}
               />
             </BlurFade>
           ))}
@@ -143,6 +145,7 @@ export default function Page() {
                   links={project.links}
                   companyName={project.companyName}
                   companyLogo={project.companyLogo}
+                  id={project.id}
                 />
               </BlurFade>
             ))}

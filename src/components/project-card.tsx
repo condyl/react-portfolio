@@ -28,6 +28,7 @@ interface Props {
   className?: string;
   companyName?: string; // New optional property
   companyLogo?: string; // New optional property
+  id: string;
 }
 
 export function ProjectCard({
@@ -43,13 +44,14 @@ export function ProjectCard({
   className,
   companyName, // Destructure new property
   companyLogo, // Destructure new property
+  id,
 }: Props) {
-  console.log(companyName, companyLogo);
   return (
     <Card
       className={
         "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
       }
+      id={id}
     >
       <Link
         href={href || "#"}
@@ -90,7 +92,7 @@ export function ProjectCard({
         {/* Conditionally render affiliation section */}
         {companyName && companyLogo && (
           <a href="#work">
-            <div className="mt-2 flex items-center space-x-2" >
+            <div className="mt-2 flex items-center space-x-2">
               <Image
                 src={companyLogo}
                 alt={`${companyName} logo`}
