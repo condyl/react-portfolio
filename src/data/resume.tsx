@@ -40,6 +40,7 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
+    { href: "/blog", icon: NotebookIcon, label: "Blog" },
     { href: "https://terminal-portfolio-flame.vercel.app/", icon: TerminalIcon, label: "Terminal Portfolio" },
   ],
   contact: {
