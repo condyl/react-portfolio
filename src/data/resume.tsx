@@ -270,15 +270,22 @@ export const DATA = {
   ],
   hackathons: [
     {
-      title: "title",
-      dates: "January 1st - 2nd, 2000",
-      location: "City, State",
+      title: "Sun Life's Elevate CloudTech Hackathon",
+      dates: "November 4th - 8th, 2024",
+      location: "Toronto, ON",
       description:
-        "description",
+        "Created an Amazon Q chat bot to help users find and consume documentation faster.",
       image:
-        "logo image here ",
+        "/sunlife.png",
       mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg",
-      links: [],
+      placement: 1,
+      links: [
+        {
+          title: "Blog Post",
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: "/blog/sunlife-week-10/"
+        },
+      ],
     },
   ],
 } as const;

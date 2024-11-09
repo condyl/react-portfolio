@@ -13,6 +13,7 @@ interface Props {
     title: string;
     href: string;
   }[];
+  placement?: number;
 }
 
 export function HackathonCard({
@@ -22,41 +23,68 @@ export function HackathonCard({
   location,
   image,
   links,
+  placement,
 }: Props) {
+  const getPlacementColor = (placement: number) => {
+    switch (placement) {
+      case 1:
+        return "bg-yellow-400";
+      case 2:
+        return "bg-gray-500";
+      case 3:
+        return "bg-amber-600";
+      default:
+        return "";
+    }
+  };
+
   return (
     <li className="relative ml-10 py-4">
       <div className="absolute -left-16 top-2 flex items-center justify-center bg-white rounded-full">
-        <Avatar className="border size-12 m-auto">
-          <AvatarImage src={image} alt={title} className="object-contain" />
-          <AvatarFallback>{title[0]}</AvatarFallback>
-        </Avatar>
+      <Avatar className="border size-12 m-auto">
+        <AvatarImage src={image} alt={title} className="object-contain" />
+        <AvatarFallback>{title[0]}</AvatarFallback>
+      </Avatar>
       </div>
       <div className="flex flex-1 flex-col justify-start gap-1">
-        {dates && (
-          <time className="text-xs text-muted-foreground">{dates}</time>
-        )}
-        <h2 className="font-semibold leading-none">{title}</h2>
-        {location && (
-          <p className="text-sm text-muted-foreground">{location}</p>
-        )}
-        {description && (
-          <span className="prose dark:prose-invert text-sm text-muted-foreground">
-            {description}
-          </span>
-        )}
-      </div>
-      {links && links.length > 0 && (
-        <div className="mt-2 flex flex-row flex-wrap items-start gap-2">
-          {links?.map((link, idx) => (
-            <Link href={link.href} key={idx}>
-              <Badge key={idx} title={link.title} className="flex gap-2">
-                {link.icon}
-                {link.title}
-              </Badge>
-            </Link>
-          ))}
-        </div>
+      {dates && (
+        <time className="text-xs text-muted-foreground">{dates}</time>
       )}
+      <h2 className="font-semibold leading-none">{title}</h2>
+      {location && (
+        <p className="text-sm text-muted-foreground">{location}</p>
+      )}
+      {description && (
+        <span className="prose dark:prose-invert text-sm text-muted-foreground">
+        {description}
+        </span>
+      )}
+      </div>
+      <div className="mt-2 flex flex-row flex-wrap items-start gap-2">
+      {placement !== undefined && (
+        <Badge className={getPlacementColor(placement)}>
+        {placement === 1
+          ? "First Place"
+          : placement === 2
+          ? "Second Place"
+          : placement === 3
+          ? "Third Place"
+          : `Placement: ${placement}`}
+        </Badge>
+      )}
+      {links && links.length > 0 && (
+        <>
+        {links?.map((link, idx) => (
+          <Link href={link.href} key={idx}>
+          <Badge key={idx} title={link.title} className="flex gap-2">
+            {link.icon}
+            {link.title}
+          </Badge>
+          </Link>
+        ))}
+        </>
+      )}
+      </div>
     </li>
   );
 }
