@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon, TerminalIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon, TerminalIcon, FileTextIcon } from "lucide-react";
 
 export const DATA = {
   name: "Connor Bernard",
@@ -23,6 +23,7 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/Connor_Bernard_Resume.pdf", icon: FileTextIcon, label: "Resume" },
     { href: "https://terminal-portfolio-flame.vercel.app/", icon: TerminalIcon, label: "Terminal Portfolio" },
   ],
   contact: {
@@ -108,7 +109,7 @@ export const DATA = {
       degree: "BSc in Computer Science (co-op)",
       logoUrl: "/brocku.png",
       start: "2022",
-      end: "2027",
+      end: "2026",
       id: "education_brocku",
     },
   ],
@@ -259,7 +260,6 @@ export const DATA = {
         "Created an Amazon Q chat bot to help users find and consume documentation faster.",
       image:
         "/sunlife.png",
-      mlh: "https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg",
       placement: 1,
       links: [
         {
