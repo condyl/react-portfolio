@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon, TerminalIcon, FileTextIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon, TerminalIcon, FileTextIcon, LightbulbIcon } from "lucide-react";
 
 export const DATA = {
   name: "Connor Bernard",
@@ -23,6 +23,7 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/experiments", icon: LightbulbIcon, label: "Experiments" },
     { href: "/Connor_Bernard_Resume.pdf", icon: FileTextIcon, label: "Resume" },
     { href: "https://terminal-portfolio-flame.vercel.app/", icon: TerminalIcon, label: "Terminal Portfolio" },
   ],

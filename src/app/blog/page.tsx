@@ -16,7 +16,7 @@ export default async function BlogPage() {
   const posts = await getBlogPosts();
 
   return (
-    <section>
+    <section className="mx-auto max-w-2xl py-12 sm:py-24 px-6">
       <BlurFade delay={BLUR_FADE_DELAY}>
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">

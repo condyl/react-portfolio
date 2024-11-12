@@ -26,8 +26,8 @@ interface Props {
     href: string;
   }[];
   className?: string;
-  companyName?: string; // New optional property
-  companyLogo?: string; // New optional property
+  companyName?: string;
+  companyLogo?: string;
   id: string;
 }
 
