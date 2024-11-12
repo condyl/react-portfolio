@@ -1,0 +1,164 @@
+<!--
+{
+    "title": "Conway's Game of Life",
+    "summary": "Simple implementation of Conway's Game of Life using HTML5 Canvas.",
+    "image": "/experiments/conway.png"
+}
+-->
+
+<html lang="en">
+    <head>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                height: 100%;
+                background-color: #f0f0f0;
+            }
+            canvas {
+                display: block;
+                width: 100vw;
+                height: 100vh;
+            }
+
+            #speedControl {
+                position: absolute;
+                top: 58px;
+                left: 67px;
+                -webkit-appearance: none;
+                height: 28px;
+                width: 159px;
+                background: #d3d3d3;
+                outline: none;
+                -webkit-transition: 0.2s;
+                transition: opacity 0.2s;
+            }
+
+            #speedControl::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 28px;
+                height: 28px;
+                background: #3a3a3a;
+                cursor: pointer;
+            }
+
+            #speedLabel {
+                position: absolute;
+                top: 60px;
+                left: 20px;
+                background-color: #3a3a3a;
+                color: white;
+                padding: 5px;
+                box-sizing: border-box;
+            }
+
+            #speedValue {
+                position: absolute;
+                top: 60px;
+                left: 228px;
+                width: 28px;
+                text-align: center;
+                background-color: #3a3a3a;
+                color: white;
+                padding: 5px;
+                box-sizing: border-box;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="gameCanvas"></canvas>
+        <label id="speedLabel" for="speedControl">Speed</label>
+        <input type="range" id="speedControl" min="1" max="50" value="25" />
+        <span id="speedValue">25</span>
+
+        <script>
+            const cellSize = 10;
+            const canvas = document.getElementById("gameCanvas");
+            const ctx = canvas.getContext("2d");
+            const speedControl = document.getElementById("speedControl");
+            const speedValue = document.getElementById("speedValue");
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const cols = Math.floor(canvas.width / cellSize);
+            const rows = Math.floor(canvas.height / cellSize);
+
+            let grid = createGrid();
+            randomizeGrid(grid);
+            let speed = speedControl.value;
+
+            speedControl.addEventListener("input", () => {
+                speed = speedControl.value;
+                speedValue.textContent = speed;
+            });
+
+            function gameLoop() {
+                drawGrid(grid);
+                grid = nextGeneration(grid);
+                setTimeout(() => {
+                    requestAnimationFrame(gameLoop);
+                }, 1000 / speed);
+            }
+
+            function createGrid() {
+                return new Array(rows).fill(null).map(() => new Array(cols).fill(0));
+            }
+
+            function randomizeGrid(grid) {
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        grid[row][col] = Math.random() > 0.8 ? 1 : 0;
+                    }
+                }
+            }
+
+            function drawGrid(grid) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        if (grid[row][col] === 1) {
+                            ctx.fillStyle = "black";
+                            ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+                        }
+                    }
+                }
+            }
+
+            function nextGeneration(grid) {
+                const newGrid = createGrid();
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        const aliveNeighbors = countAliveNeighbors(grid, row, col);
+                        if (grid[row][col] === 1) {
+                            newGrid[row][col] = aliveNeighbors === 2 || aliveNeighbors === 3 ? 1 : 0;
+                        } else {
+                            newGrid[row][col] = aliveNeighbors === 3 ? 1 : 0;
+                        }
+                    }
+                }
+                return newGrid;
+            }
+
+            function countAliveNeighbors(grid, row, col) {
+                let count = 0;
+                for (let i = -1; i <= 1; i++) {
+                    for (let j = -1; j <= 1; j++) {
+                        if (i === 0 && j === 0) continue;
+                        const x = row + i;
+                        const y = col + j;
+                        if (x >= 0 && x < rows && y >= 0 && y < cols) {
+                            count += grid[x][y];
+                        }
+                    }
+                }
+                return count;
+            }
+
+            gameLoop();
+        </script>
+    </body>
+</html>
