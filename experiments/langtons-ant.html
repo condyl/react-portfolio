@@ -1,0 +1,218 @@
+<!--
+{
+    "title": "Langton's Ant",
+    "summary": "Simple implementation of Langton's Ant using HTML5 Canvas.",
+    "image": "",
+    "video": "/experiments/langston.mp4",
+    "date": "2024-11-12"
+}
+-->
+<html lang="en">
+    <head>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                height: 100%;
+                background-color: #f0f0f0;
+            }
+            canvas {
+                display: block;
+                width: 100vw;
+                height: 100vh;
+            }
+
+            #speedControl {
+                position: absolute;
+                top: 58px;
+                left: 67px;
+                -webkit-appearance: none;
+                height: 28px;
+                width: 159px;
+                background: #d3d3d3;
+                outline: none;
+                -webkit-transition: 0.2s;
+                transition: opacity 0.2s;
+            }
+
+            #speedControl::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 28px;
+                height: 28px;
+                background: #3a3a3a;
+                cursor: pointer;
+            }
+
+            #speedLabel {
+                position: absolute;
+                top: 60px;
+                left: 20px;
+                background-color: #3a3a3a;
+                color: white;
+                padding: 5px;
+                box-sizing: border-box;
+            }
+
+            #speedValue {
+                position: absolute;
+                top: 60px;
+                left: 228px;
+                width: 40px;
+                text-align: center;
+                background-color: #3a3a3a;
+                color: white;
+                padding: 5px;
+                box-sizing: border-box;
+            }
+
+            #patternLabel {
+                position: absolute;
+                top: 100px;
+                left: 20px;
+                background-color: #3a3a3a;
+                color: white;
+                padding: 5px;
+                box-sizing: border-box;
+            }
+
+            #patternInput {
+                position: absolute;
+                top: 100px;
+                left: 228px;
+                width: 100px;
+                background-color: #d3d3d3;
+                color: black;
+                padding: 5px;
+                box-sizing: border-box;
+            }
+
+            #startStopButton {
+                position: absolute;
+                top: 140px;
+                left: 20px;
+                background-color: #3a3a3a;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                box-sizing: border-box;
+            }
+
+            #startStopButton:hover {
+                background-color: #555;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="gameCanvas"></canvas>
+        <label id="speedLabel" for="speedControl">Speed</label>
+        <input type="range" id="speedControl" min="1" max="1000" value="500" />
+        <span id="speedValue">500</span>
+        <label id="patternLabel" for="patternInput">Pattern (R for right, L for left):</label>
+        <textarea id="patternInput" rows="1" cols="10">RL</textarea>
+        <button id="startStopButton">Start</button>
+
+        <script>
+            const cellSize = 10;
+            const canvas = document.getElementById("gameCanvas");
+            const ctx = canvas.getContext("2d");
+            const speedControl = document.getElementById("speedControl");
+            const speedValue = document.getElementById("speedValue");
+            const patternInput = document.getElementById("patternInput");
+            const startStopButton = document.getElementById("startStopButton");
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const cols = Math.floor(canvas.width / cellSize);
+            const rows = Math.floor(canvas.height / cellSize);
+
+            let grid = createGrid();
+            let ant = {
+                x: Math.floor(cols / 2),
+                y: Math.floor(rows / 2),
+                dir: 3, // 0: up, 1: right, 2: down, 3: left
+            };
+            let speed = speedControl.value;
+            let pattern = patternInput.value;
+            let running = false;
+            let animationFrameId;
+
+            speedControl.addEventListener("input", () => {
+                speed = speedControl.value;
+                speedValue.textContent = speed;
+            });
+
+            patternInput.addEventListener("input", () => {
+                pattern = patternInput.value;
+            });
+
+            startStopButton.addEventListener("click", () => {
+                running = !running;
+                startStopButton.textContent = running ? "Stop" : "Start";
+                if (running) {
+                    gameLoop();
+                } else {
+                    cancelAnimationFrame(animationFrameId);
+                }
+            });
+
+            function gameLoop() {
+                drawGrid(grid);
+                moveAnt();
+                animationFrameId = setTimeout(() => {
+                    requestAnimationFrame(gameLoop);
+                }, 1000 / speed);
+            }
+
+            function createGrid() {
+                return new Array(rows).fill(null).map(() => new Array(cols).fill(0));
+            }
+
+            function drawGrid(grid) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        if (grid[row][col] === 1) {
+                            ctx.fillStyle = "black";
+                            ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+                        }
+                    }
+                }
+                ctx.fillStyle = "red";
+                ctx.fillRect(ant.x * cellSize, ant.y * cellSize, cellSize, cellSize);
+            }
+
+            function moveAnt() {
+                const currentCell = grid[ant.y][ant.x];
+                const turn = pattern[currentCell % pattern.length];
+
+                if (turn === 'R') {
+                    ant.dir = (ant.dir + 1) % 4;
+                } else if (turn === 'L') {
+                    ant.dir = (ant.dir + 3) % 4;
+                }
+
+                grid[ant.y][ant.x] = (currentCell + 1) % pattern.length;
+
+                switch (ant.dir) {
+                    case 0:
+                        ant.y = (ant.y - 1 + rows) % rows;
+                        break;
+                    case 1:
+                        ant.x = (ant.x + 1) % cols;
+                        break;
+                    case 2:
+                        ant.y = (ant.y + 1) % rows;
+                        break;
+                    case 3:
+                        ant.x = (ant.x - 1 + cols) % cols;
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>

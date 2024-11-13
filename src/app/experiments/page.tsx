@@ -8,15 +8,14 @@ import { DATA } from "@/data/resume";
 import { ProjectCard } from "@/components/project-card";
 
 export const metadata = {
-    title: "Blog",
-    description: "My thoughts on software development, life, and more.",
+    title: "Experiments",
+    description: "Little fun experiments I've worked on.",
 };
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default async function BlogPage() {
     const experiments = await getExperiments();
-
     return (
         <section className="max-w-2xl mx-auto py-12 sm:py-24 px-6">
             <BlurFade delay={BLUR_FADE_DELAY}>
@@ -51,6 +50,12 @@ export default async function BlogPage() {
             </BlurFade>
             <div className="grid gap-4 grid-cols-2">
                 {experiments
+                    .sort((a, b) => {
+                        if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
+                            return -1;
+                        }
+                        return 1;
+                    })
                     .map((experiment, id) => (
                         <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={experiment.slug}>
                             <ProjectCard
@@ -58,15 +63,16 @@ export default async function BlogPage() {
                                 title={experiment.metadata.title}
                                 href={`/experiments/${experiment.slug}`}
                                 description={experiment.metadata.summary}
-                                dates={experiment.metadata.publishedAt}
+                                dates={new Date(experiment.metadata.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} 
                                 tags={[]}
                                 image={experiment.metadata.image}
+                                video={experiment.metadata.video}
                                 links={[
                                     {
                                         icon: <Icons.globe className="size-3" />, // replace with actual icon
                                         type: "Live Demo",
-                                        href: `/experiments/${experiment.slug}`
-                                    }
+                                        href: `/experiments/${experiment.slug}`,
+                                    },
                                 ]}
                             />
                         </BlurFade>

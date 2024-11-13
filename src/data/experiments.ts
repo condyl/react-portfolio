@@ -6,6 +6,7 @@ type Metadata = {
   publishedAt: string;
   summary: string;
   image?: string;
+  video?: string;
 };
 
 function getHTMLFiles(dir: string) {
@@ -28,7 +29,7 @@ function parseMetadata(content: string): { metadata: Metadata; html: string } {
     }
   }
 
-  const html = content.replace(/<!--\s*({[\s\S]*?})\s*-->/, ""); // Strip metadata comment
+  const html = content.replace(/<!--\s*({[\s\S]*?})\s*-->/, "");
   return { metadata, html };
 }
 
@@ -38,7 +39,7 @@ export async function getExperiment(slug: string) {
   const { metadata, html } = parseMetadata(source);
 
   return {
-    source: html, // Clean HTML without metadata
+    source: html,
     metadata,
     slug,
   };
