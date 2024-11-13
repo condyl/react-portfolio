@@ -6,6 +6,9 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-BD1DE72CFR");
 
 const fontSans = FontSans({
   subsets: ["latin"],

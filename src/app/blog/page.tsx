@@ -4,6 +4,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getBlogPosts } from "@/data/blog";
 import Link from "next/link";
 import { DATA } from "@/data/resume";
+import ReactGA from "react-ga4";
+
+ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "Blog Home" });
 
 export const metadata = {
   title: "Blog",
