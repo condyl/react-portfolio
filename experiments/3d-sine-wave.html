@@ -1,0 +1,134 @@
+<!--
+{
+    "title": "3D Wave Simulation",
+    "summary": "A 3D wave simulation based on sine waves. Made using Three.js.",
+    "image": "",
+    "video": "/experiments/wave.mp4",
+    "date": "2024-11-13"
+}
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+                }
+            }
+        </script>
+        <style>
+            body {
+                margin: 0;
+            }
+            #container {
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script type="module">
+            import * as THREE from 'three';
+            import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+            import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0xf0f0f0); 
+            document.getElementById('container').appendChild(renderer.domElement);
+
+            const light = new THREE.DirectionalLight(0xffffff, 1);
+            light.position.set(50, 50, 50).normalize();
+            scene.add(light);
+
+            const ambientLight = new THREE.AmbientLight(0x404040, 1); 
+            scene.add(ambientLight);
+
+            const parameters = {
+                gridSize: 50,
+                frequency: 0.1,
+                amplitude: 5,
+                speed: 0.02
+            };
+
+            const cubes = [];
+            const geometry = new THREE.BoxGeometry(1, 1, 1);
+
+            function getSmoothColor(x, z) {
+                const red = Math.sin(x * 0.1) * 127 + 128;   
+                const green = Math.sin(z * 0.1) * 127 + 128; 
+                const blue = Math.sin((x + z) * 0.1) * 127 + 128; 
+
+                return new THREE.Color(red / 255, green / 255, blue / 255); 
+            }
+
+            function createCubes() {
+                cubes.forEach(cube => scene.remove(cube)); 
+                cubes.length = 0; 
+
+                for (let i = -parameters.gridSize / 2; i < parameters.gridSize / 2; i++) {
+                    for (let j = -parameters.gridSize / 2; j < parameters.gridSize / 2; j++) {
+                        const material = new THREE.MeshPhongMaterial({ color: getSmoothColor(i, j) });
+                        const cube = new THREE.Mesh(geometry, material);
+                        cube.position.set(i, 0, j);
+                        cubes.push(cube);
+                        scene.add(cube);
+                    }
+                }
+            }
+
+            createCubes();
+
+            camera.position.y = 25;
+            camera.position.z = 50;
+
+            const controls = new OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true; 
+            controls.dampingFactor = 0.25;
+            controls.screenSpacePanning = false;
+            controls.autoRotate = true; 
+            controls.autoRotateSpeed = 0.2; 
+
+
+            const gui = new GUI();
+            gui.add(parameters, 'speed', 0.01, 0.1);
+            gui.add(parameters, 'amplitude', 1, 10);
+            gui.add(parameters, 'frequency', 0.01, 0.5);
+            gui.add(parameters, 'gridSize', 10, 100).step(1).onChange(() => {
+                createCubes(); 
+            });
+
+            let time = 0;
+            function animate() {
+                requestAnimationFrame(animate);
+
+                cubes.forEach(cube => {
+                    const x = cube.position.x;
+                    const z = cube.position.z;
+
+                    cube.position.y = parameters.amplitude * Math.sin(parameters.frequency * (x + z) + time);
+                });
+
+                time += parameters.speed;
+
+                controls.update();
+
+                renderer.render(scene, camera);
+            }
+
+            window.addEventListener('resize', () => {
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+            });
+
+            animate();
+        </script>
+    </body>
+</html>
