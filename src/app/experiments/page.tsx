@@ -69,9 +69,14 @@ export default async function BlogPage() {
                                 video={experiment.metadata.video}
                                 links={[
                                     {
-                                        icon: <Icons.globe className="size-3" />, // replace with actual icon
+                                        icon: <Icons.globe className="size-3" />,
                                         type: "Live Demo",
                                         href: `/experiments/${experiment.slug}`,
+                                    },
+                                    {
+                                        icon: <Icons.github className="size-3" />,
+                                        type: "GitHub",
+                                        href: `https://github.com/condyl/react-portfolio/blob/main/experiments/${experiment.slug}.html`,
                                     },
                                 ]}
                             />
