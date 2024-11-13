@@ -63,7 +63,7 @@ export default async function BlogPage() {
                                 title={experiment.metadata.title}
                                 href={`/experiments/${experiment.slug}`}
                                 description={experiment.metadata.summary}
-                                dates={new Date(experiment.metadata.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} 
+                                dates={""} 
                                 tags={[]}
                                 image={experiment.metadata.image}
                                 video={experiment.metadata.video}
