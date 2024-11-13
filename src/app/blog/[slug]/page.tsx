@@ -18,7 +18,7 @@ export async function generateMetadata({
     let { title, publishedAt: publishedTime, summary: description, image } = post.metadata;
     let ogImage = image ? `${DATA.url}${image}` : `${DATA.url}/og?title=${title}`;
 
-    ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "Blog - " + title });
+    ReactGA.send({ hitType: "pageview", page: "/blog", title: "Blog - " + title });
 
     return {
         title,

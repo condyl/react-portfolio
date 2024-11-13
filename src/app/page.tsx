@@ -10,7 +10,7 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import ReactGA from "react-ga4";
 
-ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "Home" });
+ReactGA.send({ hitType: "pageview", page: "/", title: "Home" });
 
 const BLUR_FADE_DELAY = 0.04;
 

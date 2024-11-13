@@ -6,7 +6,7 @@ import Link from "next/link";
 import { DATA } from "@/data/resume";
 import ReactGA from "react-ga4";
 
-ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "Blog Home" });
+ReactGA.send({ hitType: "pageview", page: "/blog", title: "Blog Home" });
 
 export const metadata = {
   title: "Blog",
