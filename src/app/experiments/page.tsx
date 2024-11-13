@@ -62,9 +62,7 @@ export default async function BlogPage() {
                                 id={experiment.slug}
                                 title={experiment.metadata.title}
                                 href={`/experiments/${experiment.slug}`}
-                                description={
-                                    experiment.metadata.summary + new Date(experiment.metadata.publishedAt).getUTCDate()
-                                }
+                                description={experiment.metadata.summary}
                                 dates={`${new Date(experiment.metadata.publishedAt).toLocaleString("default", {
                                     month: "long",
                                 })} ${new Date(experiment.metadata.publishedAt).getUTCDate()}, ${new Date(
