@@ -5,7 +5,6 @@ import { DATA } from "@/data/resume";
 import { Icons } from "@/components/icons";
 import ShimmerButton from "@/components/ui/shimmer-button";
 
-// Fetch the experiment data based on the slug
 export default async function ExperimentPage({
     params,
 }: {
@@ -16,7 +15,7 @@ export default async function ExperimentPage({
     const experiment = await getExperiment(params.slug);
 
     if (!experiment) {
-        notFound(); // Handle the case where the experiment is not found
+        notFound();
     }
 
     return (
@@ -32,7 +31,7 @@ export default async function ExperimentPage({
                     className="flex items-center gap-2"
                 >
                     <ShimmerButton className="shadow-3xl rounded-full p-2 ml-2">
-                        <Icons.github className="size-5" />
+                        <Icons.github className="size-5" style={{ color: "white" }} />
                     </ShimmerButton>
                 </a>
             </h1>
