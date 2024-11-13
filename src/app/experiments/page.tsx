@@ -6,9 +6,6 @@ import { Icons } from "@/components/icons";
 import Link from "next/link";
 import { DATA } from "@/data/resume";
 import { ProjectCard } from "@/components/project-card";
-import ReactGA from "react-ga4";
-
-ReactGA.send({ hitType: "pageview", page: "/experiment", title: "Experiment Home" });
 
 export const metadata = {
     title: "Blog",

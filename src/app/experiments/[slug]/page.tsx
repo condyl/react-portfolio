@@ -2,9 +2,6 @@ import { getExperiment } from "@/data/experiments"; // Adjust the path if needed
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { DATA } from "@/data/resume";
-import ReactGA from "react-ga4";
-
-
 
 // Fetch the experiment data based on the slug
 export default async function ExperimentPage({
@@ -15,8 +12,6 @@ export default async function ExperimentPage({
     };
 }) {
     const experiment = await getExperiment(params.slug);
-
-    ReactGA.send({ hitType: "pageview", page: "/experiment", title: "Experiment - " + experiment.metadata.title });
 
     if (!experiment) {
         notFound(); // Handle the case where the experiment is not found
