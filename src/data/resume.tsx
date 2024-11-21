@@ -137,7 +137,7 @@ export const DATA = {
       id: "project_knots",
     },
     {
-      title: "BrockU Automatic Course Planner",
+      title: "Brock Visual Timetable",
       href: "https://brocktimetable.com",
       dates: "March 2024 - Present",
       active: true,
@@ -152,7 +152,7 @@ export const DATA = {
         },
         {
           type: "GitHub",
-          href: "https://github.com/Oli-vers/BrockVisualTimeTable",
+          href: "https://github.com/BrockTimetable/BrockVisualTimetable",
           icon: <Icons.github className="size-3" />,
         },
       ],
