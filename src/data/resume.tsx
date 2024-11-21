@@ -12,14 +12,6 @@ export const DATA = {
     "Computer Science Student & Software Engineer",
   summary: "I'm a [3rd year Computer Science student at Brock University](#education).  I've completed some cool projects like a [3D interactive math game](#project_packing) and a [web interface for a mathematical knots program](#project_knots).  I'm currently working on a [course planner](#project_brocktimetable) for Brock University students.  If I'm not coding, I'm probably rock climbing.",
   avatarUrl: "/me.webp",
-  skills: [
-    "Java", "Python", "HTML", "CSS", "JavaScript", "PHP", "SQL", "LaTeX",
-    "Flask", "Three.js", "React", "Django", "Selenium", "Express.js", "Node.js",
-    "Git", "XAMPP", "Linux/Unix", "MySQL", "Google Dialogflow", "Socket.IO",
-    "MongoDB", "Adobe Experience Manager", "CRX", "OSGI", "Jenkins", "Artifactory",
-    "Jira", "CDD", "Amazon Q"
-  ]
-  ,
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
@@ -68,19 +60,17 @@ export const DATA = {
       company: "Sun Life",
       href: "https://www.sunlife.ca/en/",
       badges: [],
-      location: "Waterloo, ON",
       title: "Software Engineer Intern",
       logoUrl: "/logos/sunlife.png",
       start: "September 2024",
       end: "December 2024",
-      description: "Incoming Fall 2024",
+      description: "Won 1st place in Sun Life's Elevate CloudTech Hackathon.  Developed internal tools using Java and Adobe Experience Manager.",
       id: "work_sunlife",
     },
     {
       company: "Brock University",
       href: "https://www.brocku.ca",
       badges: [],
-      location: "St Catherines, ON",
       title: "Research Assistant",
       logoUrl: "/logos/brocku.png",
       start: "May 2024",
@@ -93,7 +83,6 @@ export const DATA = {
       company: "Caribou Contests",
       href: "https://www.cariboutests.com",
       badges: [],
-      location: "St Catherines, ON",
       title: "Software Developer Intern",
       logoUrl: "/logos/caribou.svg",
       start: "January 2024",
@@ -106,12 +95,13 @@ export const DATA = {
   education: [
     {
       school: "Brock University",
-      href: "https://brocku.ca",
+      href: "",
       degree: "BSc in Computer Science (co-op)",
       logoUrl: "/logos/brocku.png",
       start: "2022",
       end: "2026",
       id: "education_brocku",
+      description: "81% overall average.  82% major average.  3rd year Computer Science student.",
     },
   ],
   projects: [
