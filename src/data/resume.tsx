@@ -260,5 +260,17 @@ export const DATA = {
         },
       ],
     },
+    {
+      title: "Sun Life's Fall 2024 CI Challenge",
+      dates: "December 4, 2024",
+      location: "Toronto, ON",
+      description:
+        "Pitched a new productivity tool to Sun Life executives.",
+      image:
+        "/logos/sunlife.png",
+      placement: "Participant",
+      links: [
+      ],
+    },
   ],
 } as const;

@@ -13,7 +13,7 @@ interface Props {
     title: string;
     href: string;
   }[];
-  placement?: number;
+  placement?: number | string;
 }
 
 export function HackathonCard({
@@ -25,17 +25,20 @@ export function HackathonCard({
   links,
   placement,
 }: Props) {
-  const getPlacementColor = (placement: number) => {
-    switch (placement) {
-      case 1:
-        return "bg-yellow-400";
-      case 2:
-        return "bg-gray-500";
-      case 3:
-        return "bg-amber-600";
-      default:
-        return "";
+  const getPlacementColor = (placement: number | string) => {
+    if (typeof placement === "number") {
+      switch (placement) {
+        case 1:
+          return "bg-yellow-400";
+        case 2:
+          return "bg-gray-500";
+        case 3:
+          return "bg-amber-600";
+        default:
+          return "";
+      }
     }
+    return "";
   };
 
   return (
@@ -63,13 +66,15 @@ export function HackathonCard({
       <div className="mt-2 flex flex-row flex-wrap items-start gap-2">
       {placement !== undefined && (
         <Badge className={getPlacementColor(placement)}>
-        {placement === 1
-          ? "First Place"
-          : placement === 2
-          ? "Second Place"
-          : placement === 3
-          ? "Third Place"
-          : `Placement: ${placement}`}
+          {typeof placement === "number"
+            ? placement === 1
+              ? "First Place"
+              : placement === 2
+              ? "Second Place"
+              : placement === 3
+              ? "Third Place"
+              : `Placement: ${placement}`
+            : placement}
         </Badge>
       )}
       {links && links.length > 0 && (
