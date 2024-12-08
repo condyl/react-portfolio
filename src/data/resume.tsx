@@ -131,6 +131,8 @@ export const DATA = {
       ],
       image: "/projects/resume.png",
       video: "",
+      companyName: "",
+      companyLogo: "",
       id: "project_resume",
     },
     {
