@@ -17,7 +17,6 @@ export const DATA = {
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
     { href: "/experiments", icon: LightbulbIcon, label: "Experiments" },
     { href: "/Connor_Bernard_Resume.pdf", icon: FileTextIcon, label: "Resume" },
-    { href: "https://terminal-portfolio-flame.vercel.app/", icon: TerminalIcon, label: "Terminal Portfolio" },
   ],
   contact: {
     email: "connorbbrocku@gmail.com",
@@ -105,6 +104,35 @@ export const DATA = {
     },
   ],
   projects: [
+    {
+      title: "AI Resume Builder",
+      href: "https://resume-creator-frontend.vercel.app/",
+      dates: "November 2024 - Present",
+      active: true,
+      description:
+        "Developed a fullstack web application which allows users to easily create LaTeX resumes, with a hint of AI.",
+      technologies: ["React.js", "Express.js", "TailwindCSS", "OpenAI API"],
+      links: [
+        {
+          type: "Website",
+          href: "https://resume-creator-frontend.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Frontend GitHub",
+          href: "https://github.com/condyl/resume-creator-frontend",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Backend GitHub",
+          href: "https://github.com/condyl/resume-creator-backend",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/projects/resume.png",
+      video: "",
+      id: "project_resume",
+    },
     {
       title: "TurboKnots Web Interface",
       href: "https://cariboutests.com/games/knots",
