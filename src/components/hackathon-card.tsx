@@ -65,7 +65,7 @@ export function HackathonCard({
       </div>
       <div className="mt-2 flex flex-row flex-wrap items-start gap-2">
       {placement !== undefined && (
-        <Badge className={getPlacementColor(placement)}>
+        <Badge className={`${getPlacementColor(placement)} px-2 py-1 text-[10px]`}>
           {typeof placement === "number"
             ? placement === 1
               ? "First Place"
@@ -81,7 +81,7 @@ export function HackathonCard({
         <>
         {links?.map((link, idx) => (
           <Link href={link.href} key={idx}>
-          <Badge key={idx} title={link.title} className="flex gap-2">
+          <Badge key={idx} title={link.title} className="flex gap-2 px-2 py-1 text-[10px]">
             {link.icon}
             {link.title}
           </Badge>

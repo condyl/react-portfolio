@@ -196,6 +196,11 @@ export const DATA = {
           href: "https://cariboutests.com/games/packing.php",
           icon: <Icons.globe className="size-3" />,
         },
+        {
+          type: "Blog Post",
+          href: "/blog/packing/",
+          icon: <NotebookIcon className="size-3" />,
+        }
       ],
       image: "/projects/packing.png",
       video: "",
@@ -285,7 +290,7 @@ export const DATA = {
       links: [
         {
           title: "Blog Post",
-          icon: <Icons.globe className="h-4 w-4" />,
+          icon: <NotebookIcon className="size-3" />,
           href: "/blog/sunlife-week-10/"
         },
       ],
