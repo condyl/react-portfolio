@@ -14,7 +14,7 @@ export const DATA = {
   avatarUrl: "/me.webp",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "https://notes.connorbernard.com", icon: NotebookIcon, label: "Notes & Blog" },
     { href: "/experiments", icon: LightbulbIcon, label: "Experiments" },
     { href: "/Connor_Bernard_Resume.pdf", icon: FileTextIcon, label: "Resume" },
   ],
@@ -198,7 +198,7 @@ export const DATA = {
         },
         {
           type: "Blog Post",
-          href: "/blog/packing/",
+          href: "https://notes.connorbernard.com/work/caribou-contests/Packing",
           icon: <NotebookIcon className="size-3" />,
         }
       ],
@@ -291,7 +291,7 @@ export const DATA = {
         {
           title: "Blog Post",
           icon: <NotebookIcon className="size-3" />,
-          href: "/blog/sunlife-week-10/"
+          href: "https://notes.connorbernard.com/work/sun-life/weekly-recaps/week10"
         },
       ],
     },
