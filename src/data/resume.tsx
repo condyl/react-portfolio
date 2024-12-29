@@ -136,6 +136,32 @@ export const DATA = {
       id: "project_resume",
     },
     {
+      title: "Brock Visual Timetable",
+      href: "https://brocktimetable.com",
+      dates: "March 2024 - Present",
+      active: true,
+      description:
+      "Created an interactive course planner for Brock University students to easily plan their courses and generate a timetable.",
+      technologies: ["JavaScript", "React.js", "Express.js", "MaterialUI"],
+      links: [
+        {
+          type: "Website",
+          href: "https://brocktimetable.com",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "GitHub",
+          href: "https://github.com/BrockTimetable/BrockVisualTimetable",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/projects/brocktimetable.png",
+      video: "",
+      companyName: "",
+      companyLogo: "",
+      id: "project_brocktimetable",
+    },
+    {
       title: "TurboKnots Web Interface",
       href: "https://cariboutests.com/games/knots",
       dates: "May 2024 - December 2024",
@@ -155,32 +181,6 @@ export const DATA = {
       companyName: "Brock University",
       companyLogo: "/logos/brocku.png",
       id: "project_knots",
-    },
-    {
-      title: "Brock Visual Timetable",
-      href: "https://brocktimetable.com",
-      dates: "March 2024 - Present",
-      active: true,
-      description:
-        "Created an interactive course planner for Brock University students to easily plan their courses and generate a timetable.",
-      technologies: ["JavaScript", "React.js", "Express.js", "MaterialUI"],
-      links: [
-        {
-          type: "Website",
-          href: "https://brocktimetable.com",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "GitHub",
-          href: "https://github.com/BrockTimetable/BrockVisualTimetable",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "/projects/brocktimetable.png",
-      video: "",
-      companyName: "",
-      companyLogo: "",
-      id: "project_brocktimetable",
     },
     {
       title: "Packing Game",
@@ -231,7 +231,7 @@ export const DATA = {
     },
     {
       title: "Terminal Portfolio",
-      href: "https://terminal-portfolio-flame.vercel.app/",
+      href: "https://terminal.connorbernard.com",
       dates: "Febuary 2024 - Febuary 2024",
       active: true,
       description:
@@ -240,7 +240,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://terminal-portfolio-flame.vercel.app/",
+          href: "https://terminal.connorbernard.com",
           icon: <Icons.globe className="size-3" />,
         },
         {
