@@ -106,7 +106,7 @@ export const DATA = {
   projects: [
     {
       title: "AI Resume Builder",
-      href: "https://resume-creator-frontend.vercel.app/",
+      href: "https://resumecreator.connorbernard.com/",
       dates: "November 2024 - Present",
       active: true,
       description:
@@ -115,7 +115,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://resume-creator-frontend.vercel.app/",
+          href: "https://resumecreator.connorbernard.com/",
           icon: <Icons.globe className="size-3" />,
         },
         {
