@@ -111,7 +111,7 @@ export const DATA = {
       active: true,
       description:
         "Developed a fullstack web application which allows users to easily create LaTeX resumes, with a hint of AI.",
-      technologies: ["React.js", "Express.js", "TailwindCSS", "OpenAI API"],
+      technologies: ["React.js", "Express.js", "TailwindCSS", "OpenAI API", "Supabase"],
       links: [
         {
           type: "Website",
