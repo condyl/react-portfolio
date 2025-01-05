@@ -286,6 +286,7 @@ export const DATA = {
         "Upcoming hackathon.",
       image:
         "/logos/uottahack7.png",
+      placement: "",
       links: [
       ],
     },
