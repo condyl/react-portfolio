@@ -1,13 +1,19 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { ChevronRightIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Markdown from "react-markdown";
 
 interface ResumeCardProps {
   logoUrl: string;
@@ -20,6 +26,7 @@ interface ResumeCardProps {
   description?: string;
   id: string;
 }
+
 export const ResumeCard = ({
   logoUrl,
   altText,
@@ -47,66 +54,67 @@ export const ResumeCard = ({
       onClick={handleClick}
       id={id}
     >
-      <Card className="flex">
-        <div className="flex-none">
-          <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
-            <AvatarImage
+      <Card className="flex overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out">
+        <div className="w-24 shrink-0 bg-muted flex items-center">
+          <div className="relative h-24 w-24 px-3 py-4">
+            <Image
               src={logoUrl}
               alt={altText}
+              fill
               className="object-contain"
             />
-            <AvatarFallback>{altText[0]}</AvatarFallback>
-          </Avatar>
+          </div>
         </div>
-        <div className="flex-grow ml-4 items-center flex-col group">
-          <CardHeader>
-            <div className="flex items-center justify-between gap-x-2 text-base">
-              <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
-                {title}
-                {badges && (
-                  <span className="inline-flex gap-x-1">
-                    {badges.map((badge, index) => (
-                      <Badge
-                        variant="secondary"
-                        className="align-middle text-xs"
-                        key={index}
-                      >
-                        {badge}
-                      </Badge>
-                    ))}
-                  </span>
-                )}
-                <ChevronRightIcon
-                  className={cn(
-                    "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
-                    isExpanded ? "rotate-90" : "rotate-0"
-                  )}
-                />
-              </h3>
-              <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
-                {period}
-              </div>
+        <motion.div 
+          className="flex flex-col flex-1"
+          animate={{ 
+            minHeight: isExpanded ? "auto" : "96px"
+          }}
+          transition={{
+            duration: 0.7,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <div className="flex flex-col flex-1 justify-center h-full px-4 py-2">
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-base">{title}</CardTitle>
+              <time className="font-sans text-xs text-muted-foreground">{period}</time>
             </div>
-            {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
-          </CardHeader>
-          {description && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{
-                opacity: isExpanded ? 1 : 0,
-
-                height: isExpanded ? "auto" : 0,
-              }}
-              transition={{
-                duration: 0.7,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="mt-2 text-xs sm:text-sm"
-            >
-              {description}
-            </motion.div>
-          )}
-        </div>
+            {subtitle && (
+              <div className="font-sans text-xs text-muted-foreground mt-1">{subtitle}</div>
+            )}
+            {description && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{
+                  opacity: isExpanded ? 1 : 0,
+                  height: isExpanded ? "auto" : 0,
+                }}
+                transition={{
+                  duration: 0.7,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                <Markdown className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert mt-2">
+                  {description}
+                </Markdown>
+              </motion.div>
+            )}
+            {badges && badges.length > 0 && (
+              <div className="flex flex-wrap gap-1 mt-2">
+                {badges.map((badge, index) => (
+                  <Badge
+                    variant="secondary"
+                    className="px-1 py-0 text-[10px]"
+                    key={index}
+                  >
+                    {badge}
+                  </Badge>
+                ))}
+              </div>
+            )}
+          </div>
+        </motion.div>
       </Card>
     </Link>
   );
