@@ -106,6 +106,7 @@ export const DATA = {
   projects: [
     {
       title: "AI Resume Builder",
+      order: 1,
       href: "https://resumecreator.connorbernard.com/",
       dates: "November 2024 - Present",
       active: true,
@@ -137,6 +138,7 @@ export const DATA = {
     },
     {
       title: "Brock Visual Timetable",
+      order: 2,
       href: "https://brocktimetable.com",
       dates: "March 2024 - Present",
       active: true,
@@ -163,6 +165,7 @@ export const DATA = {
     },
     {
       title: "TurboKnots Web Interface",
+      order: 3,
       href: "https://cariboutests.com/games/knots",
       dates: "May 2024 - December 2024",
       active: true,
@@ -184,6 +187,7 @@ export const DATA = {
     },
     {
       title: "Packing Game",
+      order: 4,
       href: "https://cariboutests.com/games/packing.php",
       dates: "January 2024 - April 2024",
       active: true,
@@ -210,6 +214,7 @@ export const DATA = {
     },
     {
       title: "Ruby Discord Bot",
+      order: 5,
       href: "https://github.com/condyl/ruby-discord-bot",
       dates: "March 2024 - June 2024",
       active: true,
@@ -231,6 +236,7 @@ export const DATA = {
     },
     {
       title: "Terminal Portfolio",
+      order: 6,
       href: "https://terminal.connorbernard.com",
       dates: "Febuary 2024 - Febuary 2024",
       active: true,
@@ -253,10 +259,11 @@ export const DATA = {
       video: "",
       companyName: "",
       companyLogo: "",
-      id: "project_terminalportfolio",
+      id: "project_terminal",
     },
     {
       title: "Recipe Discord Bot",
+      order: 7,
       href: "https://github.com/condyl/recipe-discord-bot",
       dates: "May 2023 - May 2023",
       active: true,
