@@ -279,6 +279,29 @@ export const DATA = {
   ],
   hackathons: [
     {
+      title: "UOttaHack 7",
+      dates: "January 17th - 19th, 2025",
+      location: "Ottawa, ON",
+      description:
+        "Upcoming hackathon.",
+      image:
+        "/logos/uottahack7.png",
+      links: [
+      ],
+    },
+    {
+      title: "Sun Life's Fall 2024 CI Challenge",
+      dates: "December 4, 2024",
+      location: "Toronto, ON",
+      description:
+        "Pitched a new productivity tool to Sun Life executives.",
+      image:
+        "/logos/sunlife.png",
+      placement: "Participant",
+      links: [
+      ],
+    },
+    {
       title: "Sun Life's Elevate CloudTech Hackathon",
       dates: "November 4th - 8th, 2024",
       location: "Toronto, ON",
@@ -293,18 +316,6 @@ export const DATA = {
           icon: <NotebookIcon className="size-3" />,
           href: "https://notes.connorbernard.com/work/sun-life/weekly-recaps/week10"
         },
-      ],
-    },
-    {
-      title: "Sun Life's Fall 2024 CI Challenge",
-      dates: "December 4, 2024",
-      location: "Toronto, ON",
-      description:
-        "Pitched a new productivity tool to Sun Life executives.",
-      image:
-        "/logos/sunlife.png",
-      placement: "Participant",
-      links: [
       ],
     },
   ],
