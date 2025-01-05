@@ -1,16 +1,26 @@
+"use client";
+
 import { HackathonCard } from "@/components/hackathon-card";
 import HeroSection from "@/components/hero-section";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
+import { Button } from "@/components/ui/button";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
+import { useState } from "react";
 import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
+const INITIAL_PROJECT_COUNT = 4;
 
 export default function Page() {
+  const [showAllProjects, setShowAllProjects] = useState(false);
+
+  const sortedProjects = [...DATA.projects].sort((a, b) => (a.order || 0) - (b.order || 0));
+  const visibleProjects = showAllProjects ? sortedProjects : sortedProjects.slice(0, INITIAL_PROJECT_COUNT);
+
   return (
     <main className="flex flex-col min-h-[100dvh]">
       <HeroSection />
@@ -95,7 +105,7 @@ export default function Page() {
               </div>
             </BlurFade>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
-              {DATA.projects.map((project, id) => (
+              {visibleProjects.map((project, id) => (
                 <BlurFade
                   key={project.title}
                   delay={BLUR_FADE_DELAY * 12 + id * 0.05}
@@ -117,6 +127,18 @@ export default function Page() {
                 </BlurFade>
               ))}
             </div>
+            {!showAllProjects && DATA.projects.length > INITIAL_PROJECT_COUNT && (
+              <BlurFade delay={BLUR_FADE_DELAY * 12 + visibleProjects.length * 0.05}>
+                <div className="flex justify-center gap-3">
+                  <Button
+                    onClick={() => setShowAllProjects(true)}
+                    variant="outline"
+                  >
+                    Show More Projects
+                  </Button>
+                </div>
+              </BlurFade>
+            )}
           </div>
         </section>
 
