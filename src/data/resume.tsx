@@ -286,6 +286,18 @@ export const DATA = {
   ],
   hackathons: [
     {
+      title: "ConUHacks IX",
+      dates: "Feb 1st - 2nd, 2025",
+      location: "Montreal, QC",
+      description:
+        "Upcoming hackathon.",
+      image:
+        "/logos/conuhacksix.png",
+      placement: "",
+      links: [
+      ],
+    },
+    {
       title: "UOttaHack 7",
       dates: "January 17th - 19th, 2025",
       location: "Ottawa, ON",
