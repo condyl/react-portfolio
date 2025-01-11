@@ -120,13 +120,8 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
         {
-          type: "Frontend GitHub",
-          href: "https://github.com/condyl/resume-creator-frontend",
-          icon: <Icons.github className="size-3" />,
-        },
-        {
-          type: "Backend GitHub",
-          href: "https://github.com/condyl/resume-creator-backend",
+          type: "GitHub",
+          href: "https://github.com/condyl/resume-creator",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -285,6 +280,18 @@ export const DATA = {
     },
   ],
   hackathons: [
+    {
+      title: "ConUHacks IX",
+      dates: "Feb 1st - 2nd, 2025",
+      location: "Montreal, QC",
+      description:
+        "Upcoming hackathon.",
+      image:
+        "/logos/conuhacksix.png",
+      placement: "",
+      links: [
+      ],
+    },
     {
       title: "UOttaHack 7",
       dates: "January 17th - 19th, 2025",
