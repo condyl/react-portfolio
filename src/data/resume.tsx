@@ -120,13 +120,8 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
         {
-          type: "Frontend GitHub",
-          href: "https://github.com/condyl/resume-creator-frontend",
-          icon: <Icons.github className="size-3" />,
-        },
-        {
-          type: "Backend GitHub",
-          href: "https://github.com/condyl/resume-creator-backend",
+          type: "GitHub",
+          href: "https://github.com/condyl/resume-creator",
           icon: <Icons.github className="size-3" />,
         },
       ],
