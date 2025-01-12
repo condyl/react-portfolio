@@ -12,7 +12,7 @@ const config = {
   prefix: "",
   theme: {
   	container: {
-  		center: true,
+		center: true,
   		padding: '2rem',
   		screens: {
   			'2xl': '1400px'
@@ -20,10 +20,7 @@ const config = {
   	},
   	extend: {
   		fontFamily: {
-  			sans: [
-  				'var(--font-sans)',
-                    ...fontFamily.sans
-                ]
+  			sans: ["var(--font-sans)", ...fontFamily.sans]
   		},
   		colors: {
   			border: 'hsl(var(--border))',
@@ -100,22 +97,13 @@ const config = {
   				'100%': {
   					transform: 'translateZ(0) rotate(360deg)'
   				}
-  			},
-  			'wave-pulse': {
-  				'0%, 100%': {
-  					opacity: '0.4'
-  				},
-  				'50%': {
-  					opacity: '0.7'
-  				}
   			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
   			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
-  			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
-  			'wave-pulse': 'wave-pulse 4s ease-in-out infinite'
+  			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear'
   		}
   	}
   },

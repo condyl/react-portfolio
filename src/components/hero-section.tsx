@@ -5,31 +5,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { motion } from "framer-motion";
-import { Waves } from "@/components/ui/waves-background";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function HeroSection() {
   return (
     <section className="relative flex min-h-[100dvh] flex-col pt-20 overflow-hidden">
-      {/* Waves background */}
-      <motion.div
-        className="absolute inset-0 -z-20"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: BLUR_FADE_DELAY * 6 }}
-      >
-        <Waves 
-          waveSpeedX={0.0125}
-          waveSpeedY={0.005}
-          waveAmpX={32}
-          waveAmpY={16}
-          className="opacity-30"
-          lineColor="#ABABAB"
-          backgroundColor="transparent"
-        />
-      </motion.div>
-
       {/* Background gradient */}
       <motion.div 
         className="absolute inset-0 -z-10"
