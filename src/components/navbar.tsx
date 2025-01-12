@@ -13,9 +13,8 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-0 z-30 mx-auto mt-4 flex origin-top h-full max-h-14">
-      <div className="fixed top-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_bottom,black,transparent)] dark:bg-background"></div>
-      <Dock className="z-50 pointer-events-auto relative mx-auto flex min-h-full h-full items-center px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_20px_80px_-20px_#ffffff1f_inset]">
+    <header className="fixed top-0 z-30 w-full pt-4">
+      <Dock className="pointer-events-auto relative mx-auto flex min-h-full h-full items-center px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_20px_80px_-20px_#ffffff1f_inset]">
         {DATA.navbar.map((item) => (
           <DockIcon key={item.href}>
             <Tooltip>
@@ -72,6 +71,6 @@ export default function Navbar() {
           </Tooltip>
         </DockIcon>
       </Dock>
-    </div>
+    </header>
   );
 }

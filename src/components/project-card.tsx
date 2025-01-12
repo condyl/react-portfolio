@@ -1,11 +1,17 @@
-import { Badge } from "@/components/ui/badge";
+"use client";
+
 import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+  MorphingDialog,
+  MorphingDialogTrigger,
+  MorphingDialogContent,
+  MorphingDialogTitle,
+  MorphingDialogImage,
+  MorphingDialogSubtitle,
+  MorphingDialogClose,
+  MorphingDialogDescription,
+  MorphingDialogContainer,
+} from "@/components/ui/morphing-dialog";
+import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -42,22 +48,19 @@ export function ProjectCard({
   video,
   links,
   className,
-  companyName, // Destructure new property
-  companyLogo, // Destructure new property
+  companyName,
+  companyLogo,
   id,
 }: Props) {
   return (
-    <Card
-      className={
-        "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
-      }
-      id={id}
+    <MorphingDialog
+      transition={{
+        type: "spring",
+        bounce: 0.05,
+        duration: 0.25,
+      }}
     >
-      <Link
-        href={href || "#"}
-        target="_blank"
-        className={cn("block cursor-pointer", className)}
-      >
+      <MorphingDialogTrigger className="flex h-full w-full flex-col overflow-hidden rounded-lg border bg-card text-card-foreground transition-colors hover:shadow-lg">
         {video && (
           <video
             src={video}
@@ -65,34 +68,25 @@ export function ProjectCard({
             loop
             muted
             playsInline
-            className="pointer-events-none mx-auto h-40 w-full object-cover object-top" // needed because random black line at bottom of video
+            className="pointer-events-none mx-auto h-40 w-full object-cover object-top"
           />
         )}
         {image && (
-          <Image
+          <MorphingDialogImage
             src={image}
             alt={title}
-            width={500}
-            height={300}
-            className="h-40 w-full overflow-hidden object-cover object-top"
+            className="h-40 w-full object-cover object-top"
           />
         )}
-      </Link>
-      <CardHeader className="px-2">
-        <div className="space-y-1">
-          <CardTitle className="mt-1 text-base">{title}</CardTitle>
-          <time className="font-sans text-xs">{dates}</time>
-          <div className="hidden font-sans text-xs underline print:visible">
-            {link?.replace("https://", "").replace("www.", "").replace("/", "")}
-          </div>
-          <Markdown className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
-            {description}
-          </Markdown>
-        </div>
-        {/* Conditionally render affiliation section */}
-        {companyName && companyLogo && (
-          <a href="#work">
-            <div className="mt-2 flex items-center space-x-2">
+        <div className="flex flex-col p-4">
+          <MorphingDialogTitle className="text-lg font-semibold">
+            {title}
+          </MorphingDialogTitle>
+          <MorphingDialogSubtitle className="font-sans text-xs text-muted-foreground">
+            {dates}
+          </MorphingDialogSubtitle>
+          {companyName && companyLogo && (
+            <div className="mt-4 flex items-center space-x-2">
               <Image
                 src={companyLogo}
                 alt={`${companyName} logo`}
@@ -104,38 +98,102 @@ export function ProjectCard({
                 Affiliated with {companyName}
               </span>
             </div>
-          </a>
-        )}
-      </CardHeader>
-      <CardContent className="mt-auto flex flex-col px-2">
-        {tags && tags.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1">
-            {tags?.map((tag) => (
-              <Badge
-                className="px-1 py-0 text-[10px]"
-                variant="secondary"
-                key={tag}
-              >
-                {tag}
-              </Badge>
-            ))}
+          )}
+        </div>
+      </MorphingDialogTrigger>
+
+      <MorphingDialogContainer>
+        <MorphingDialogContent className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden rounded-lg border bg-card p-6 text-card-foreground sm:max-w-4xl">
+          {video && (
+            <video
+              src={video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="pointer-events-none mx-auto h-60 w-full object-cover object-top"
+            />
+          )}
+          {image && (
+            <MorphingDialogImage
+              src={image}
+              alt={title}
+              className="h-60 w-full object-cover object-top"
+            />
+          )}
+          
+          <div className="mt-6 flex flex-col">
+            <MorphingDialogTitle className="text-2xl font-semibold">
+              {title}
+            </MorphingDialogTitle>
+            <MorphingDialogSubtitle className="font-sans text-sm text-muted-foreground">
+              {dates}
+            </MorphingDialogSubtitle>
+
+            <MorphingDialogDescription
+              disableLayoutAnimation
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                animate: { opacity: 1, y: 0 },
+                exit: { opacity: 0, y: 20 },
+              }}
+              className="mt-4 space-y-4"
+            >
+              <div className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+                <Markdown>{description}</Markdown>
+              </div>
+
+              {tags && tags.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {tags?.map((tag) => (
+                    <Badge
+                      className="px-2 py-1 text-xs"
+                      variant="secondary"
+                      key={tag}
+                    >
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              )}
+
+              {links && links.length > 0 && (
+                <div className="flex flex-row flex-wrap items-start gap-2">
+                  {links?.map((link, idx) => (
+                    <Link
+                      href={link?.href}
+                      key={idx}
+                      target="_blank"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Badge key={idx} className="flex gap-2 px-3 py-1.5 text-xs">
+                        {link.icon}
+                        {link.type}
+                      </Badge>
+                    </Link>
+                  ))}
+                </div>
+              )}
+
+              {companyName && companyLogo && (
+                <div className="flex items-center space-x-2">
+                  <Image
+                    src={companyLogo}
+                    alt={`${companyName} logo`}
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                  <span className="text-xs text-muted-foreground">
+                    Affiliated with {companyName}
+                  </span>
+                </div>
+              )}
+            </MorphingDialogDescription>
           </div>
-        )}
-      </CardContent>
-      <CardFooter className="px-2 pb-2">
-        {links && links.length > 0 && (
-          <div className="flex flex-row flex-wrap items-start gap-1">
-            {links?.map((link, idx) => (
-              <Link href={link?.href} key={idx} target="_blank">
-                <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
-                  {link.icon}
-                  {link.type}
-                </Badge>
-              </Link>
-            ))}
-          </div>
-        )}
-      </CardFooter>
-    </Card>
+          <MorphingDialogClose />
+        </MorphingDialogContent>
+      </MorphingDialogContainer>
+    </MorphingDialog>
   );
 }
