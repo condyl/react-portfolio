@@ -110,7 +110,7 @@ export const DATA = {
       dates: "November 2024 - Present",
       active: true,
       description:
-        "Developed a fullstack web application which allows users to easily create LaTeX resumes, with a hint of AI.",
+        "Built a fullstack web application which allows users to easily create LaTeX resumes.  The goal was to have an easy to use interface, with a quick resume generation time.  I have also implemented Supabase for authentication and saving resumes to the cloud.  There have also been multiple user customization options added.  I have also added a \"AI dot jot improver\" which allows users to improve their dot points instantly with AI.",
       technologies: ["React.js", "Express.js", "TailwindCSS", "OpenAI API", "Supabase"],
       links: [
         {
@@ -137,7 +137,7 @@ export const DATA = {
       dates: "March 2024 - Present",
       active: true,
       description:
-      "Created an interactive course planner for Brock University students to easily plan their courses and generate a timetable.",
+      "Created an interactive course planner for Brock University students to easily plan their courses and generate a timetable.  The goal was to make course planning simple, as opposed to the current PDF of a timetable so you can plan it on paper.  This tool lets users input their courses and view all available combinations of courses.  There have also been many quality of life features added, such as being able to block out time for other activities, easily sort schedules by time spent waiting, minimum number of days in class, and more.",
       technologies: ["JavaScript", "React.js", "Express.js", "MaterialUI"],
       links: [
         {
@@ -164,7 +164,7 @@ export const DATA = {
       dates: "May 2024 - December 2024",
       active: true,
       description:
-        "Created an interactive web interface for Thomas Wolf's mathematical knots program TurboKnots using PHP and JavaScript.",
+        "The TurboKnots web interface project modernizes Professor Thomas Wolf’s Linux-based knot theory software by creating a platform-independent, web-based interface. This interface supports real-time knot simplification, visualization, and complex calculations while accommodating multiple encoding formats like DT notation and 4-tuple encoding. It addresses accessibility challenges of the original software, enabling researchers, educators, and students to manipulate and analyze complex knots with ease. Key achievements include restoring outdated functionalities, resolving technical hurdles, and implementing advanced features like random knot generation and dynamic knot adjustments. Future improvements aim to enhance performance and scalability through optimized database handling and expanded features.",
       technologies: ["JavaScript", "PHP", "SQLite", "JQuery"],
       links: [
         {
@@ -186,7 +186,7 @@ export const DATA = {
       dates: "January 2024 - April 2024",
       active: true,
       description:
-        "Led development of a 3D interactive math game which teaches students how to pack 3D shapes into a box.",
+        "The Packing project at Caribou Contests transformed a vague GitHub issue into an engaging online 3D puzzle game inspired by John Conway’s “Conway Puzzle.” Using three.js, the game features a customizable grid, dynamic shape placement, and interactive gameplay, allowing players to solve puzzles by arranging 3D shapes. Over two weeks, a playable MVP was developed, followed by months of refining features like variable grid sizes, JSON-based puzzle loading, improved lighting, and enhanced UI/UX. The game was designed for flexibility, enabling future developers to easily add puzzles, and now features multiple levels, user-friendly controls, and celebratory fireworks for wins.",
       technologies: ["JavaScript", "Three.js", "PHP", "SQL"],
       links: [
         {
