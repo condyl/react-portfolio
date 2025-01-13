@@ -104,32 +104,36 @@ export function ProjectCard({
       </MorphingDialogTrigger>
 
       <MorphingDialogContainer>
-        <MorphingDialogContent className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden rounded-lg border bg-card p-6 text-card-foreground sm:max-w-4xl">
-          {video && (
-            <video
-              src={video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="pointer-events-none mx-auto h-60 w-full object-cover object-top"
-            />
-          )}
-          {image && (
-            <MorphingDialogImage
-              src={image}
-              alt={title}
-              className="h-60 w-full object-cover object-top"
-            />
-          )}
+        <MorphingDialogContent className="pointer-events-auto relative flex w-full flex-col overflow-hidden rounded-lg border bg-card text-card-foreground sm:max-w-4xl">
+          <div className="flex-none">
+            {video && (
+              <video
+                src={video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="pointer-events-none mx-auto h-60 w-full object-cover object-top"
+              />
+            )}
+            {image && (
+              <MorphingDialogImage
+                src={image}
+                alt={title}
+                className="h-60 w-full object-cover object-top"
+              />
+            )}
+          </div>
           
-          <div className="mt-6 flex flex-col">
-            <MorphingDialogTitle className="text-2xl font-semibold">
-              {title}
-            </MorphingDialogTitle>
-            <MorphingDialogSubtitle className="font-sans text-sm text-muted-foreground">
-              {dates}
-            </MorphingDialogSubtitle>
+          <div className="flex flex-col p-6">
+            <div className="flex-none">
+              <MorphingDialogTitle className="text-2xl font-semibold">
+                {title}
+              </MorphingDialogTitle>
+              <MorphingDialogSubtitle className="font-sans text-sm text-muted-foreground">
+                {dates}
+              </MorphingDialogSubtitle>
+            </div>
 
             <MorphingDialogDescription
               disableLayoutAnimation
@@ -140,7 +144,7 @@ export function ProjectCard({
               }}
               className="mt-4 space-y-4"
             >
-              <div className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+              <div className="prose max-h-[30vh] max-w-full overflow-y-auto text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
                 <Markdown>{description}</Markdown>
               </div>
 
