@@ -12,6 +12,7 @@ import {
   MorphingDialogContainer,
 } from "@/components/ui/morphing-dialog";
 import { Badge } from "@/components/ui/badge";
+import { ExpandableButton } from "@/components/ui/expandable-button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -166,10 +167,14 @@ export function ProjectCard({
                       target="_blank"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <Badge key={idx} className="flex gap-2 px-3 py-1.5 text-xs">
-                        {link.icon}
-                        {link.type}
-                      </Badge>
+                      <ExpandableButton
+                        key={idx}
+                        icon={link.icon}
+                        text={link.type}
+                        variant="secondary"
+                        size="sm"
+                        className="text-xs"
+                      />
                     </Link>
                   ))}
                 </div>

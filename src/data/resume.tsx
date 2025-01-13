@@ -16,7 +16,6 @@ export const DATA = {
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "https://notes.connorbernard.com", icon: NotebookIcon, label: "Notes & Blog" },
     { href: "/experiments", icon: LightbulbIcon, label: "Experiments" },
-    { href: "/Connor_Bernard_Resume.pdf", icon: FileTextIcon, label: "Resume" },
   ],
   contact: {
     email: "connorbbrocku@gmail.com",
@@ -115,7 +114,7 @@ export const DATA = {
       technologies: ["React.js", "Express.js", "TailwindCSS", "OpenAI API", "Supabase"],
       links: [
         {
-          type: "Website",
+          type: "Live Demo",
           href: "https://resumecreator.connorbernard.com/",
           icon: <Icons.globe className="size-3" />,
         },
@@ -142,7 +141,7 @@ export const DATA = {
       technologies: ["JavaScript", "React.js", "Express.js", "MaterialUI"],
       links: [
         {
-          type: "Website",
+          type: "Live Demo",
           href: "https://brocktimetable.com",
           icon: <Icons.globe className="size-3" />,
         },
@@ -169,7 +168,7 @@ export const DATA = {
       technologies: ["JavaScript", "PHP", "SQLite", "JQuery"],
       links: [
         {
-          type: "Website",
+          type: "Live Demo",
           href: "https://brocktimetable.com",
           icon: <Icons.globe className="size-3" />,
         },
@@ -191,7 +190,7 @@ export const DATA = {
       technologies: ["JavaScript", "Three.js", "PHP", "SQL"],
       links: [
         {
-          type: "Website",
+          type: "Live Demo",
           href: "https://cariboutests.com/games/packing.php",
           icon: <Icons.globe className="size-3" />,
         },
@@ -240,7 +239,7 @@ export const DATA = {
       technologies: ["HTML", "CSS", "JavaScript"],
       links: [
         {
-          type: "Website",
+          type: "Live Demo",
           href: "https://terminal.connorbernard.com",
           icon: <Icons.globe className="size-3" />,
         },
