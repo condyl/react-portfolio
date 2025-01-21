@@ -296,11 +296,26 @@ export const DATA = {
       dates: "January 17th - 19th, 2025",
       location: "Ottawa, ON",
       description:
-        "Upcoming hackathon.",
+        "Built a webapp to help users find & book parking spots. Experimented with computer vision & object recognition to streamline user input.",
       image:
         "/logos/uottahack7.png",
       placement: "",
       links: [
+        {
+          title: "Live Demo",
+          icon: <Icons.globe className="size-3" />,
+          href: "https://usepitstop.gadget.app/"
+        },
+        {
+          title: "GitHub", 
+          icon: <Icons.github className="size-3" />,
+          href: "https://github.com/condyl/pitstop"
+        },
+        {
+          title: "DoraHacks",
+          icon: <Icons.globe className="size-3" />,
+          href: "https://github.com/condyl/pitstop"
+        }
       ],
     },
     {
@@ -311,7 +326,7 @@ export const DATA = {
         "Pitched a new productivity tool to Sun Life executives.",
       image:
         "/logos/sunlife.png",
-      placement: "Participant",
+      placement: "",
       links: [
       ],
     },

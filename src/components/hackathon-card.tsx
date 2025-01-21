@@ -81,7 +81,7 @@ export function HackathonCard({
           <>
             {links?.map((link, idx) => (
               <Link href={link.href} key={idx}>
-                <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
+                <Badge key={idx} title={link.title} className="flex gap-2 px-2 py-1 text-[10px]">
                   {link.icon}
                   {link.title}
                 </Badge>
