@@ -44,14 +44,16 @@ function useMorphingDialog() {
 type MorphingDialogProviderProps = {
   children: React.ReactNode;
   transition?: Transition;
+  id?: string;
 };
 
 function MorphingDialogProvider({
   children,
   transition,
+  id,
 }: MorphingDialogProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const uniqueId = useId();
+  const uniqueId = id || useId();
   const triggerRef = useRef<HTMLDivElement>(null);
 
   const contextValue = useMemo(
@@ -69,11 +71,12 @@ function MorphingDialogProvider({
 type MorphingDialogProps = {
   children: React.ReactNode;
   transition?: Transition;
+  id?: string;
 };
 
-function MorphingDialog({ children, transition }: MorphingDialogProps) {
+function MorphingDialog({ children, transition, id }: MorphingDialogProps) {
   return (
-    <MorphingDialogProvider>
+    <MorphingDialogProvider transition={transition} id={id}>
       <MotionConfig transition={transition}>{children}</MotionConfig>
     </MorphingDialogProvider>
   );
@@ -84,6 +87,7 @@ type MorphingDialogTriggerProps = {
   className?: string;
   style?: React.CSSProperties;
   triggerRef?: React.RefObject<HTMLDivElement>;
+  id?: string;
 };
 
 function MorphingDialogTrigger({
@@ -91,6 +95,7 @@ function MorphingDialogTrigger({
   className,
   style,
   triggerRef,
+  id,
 }: MorphingDialogTriggerProps) {
   const { setIsOpen, isOpen, uniqueId } = useMorphingDialog();
 
@@ -120,6 +125,7 @@ function MorphingDialogTrigger({
       aria-haspopup='dialog'
       aria-expanded={isOpen}
       aria-controls={`motion-ui-morphing-dialog-content-${uniqueId}`}
+      id={id}
     >
       {children}
     </motion.div>

@@ -55,13 +55,14 @@ export function ProjectCard({
 }: Props) {
   return (
     <MorphingDialog
+      id={id}
       transition={{
         type: "spring",
         bounce: 0.05,
         duration: 0.25,
       }}
     >
-      <MorphingDialogTrigger className="flex h-full w-full flex-col overflow-hidden rounded-lg border bg-card text-card-foreground transition-colors hover:shadow-lg">
+      <MorphingDialogTrigger id={id} className="flex h-full w-full flex-col overflow-hidden rounded-lg border bg-card text-card-foreground transition-colors hover:shadow-lg">
         {video && (
           <video
             src={video}
