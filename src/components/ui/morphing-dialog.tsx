@@ -53,7 +53,8 @@ function MorphingDialogProvider({
   id,
 }: MorphingDialogProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const uniqueId = id || useId();
+  const generatedId = useId();
+  const uniqueId = id || generatedId;
   const triggerRef = useRef<HTMLDivElement>(null);
 
   const contextValue = useMemo(
@@ -75,8 +76,11 @@ type MorphingDialogProps = {
 };
 
 function MorphingDialog({ children, transition, id }: MorphingDialogProps) {
+  const generatedId = useId();
+  const dialogId = id || generatedId;
+
   return (
-    <MorphingDialogProvider transition={transition} id={id}>
+    <MorphingDialogProvider transition={transition} id={dialogId}>
       <MotionConfig transition={transition}>{children}</MotionConfig>
     </MorphingDialogProvider>
   );
