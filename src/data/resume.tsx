@@ -291,6 +291,18 @@ export const DATA = {
   ],
   hackathons: [
     {
+      title: "Hack Canada 2025",
+      dates: "February 21th - 23th, 2025",
+      location: "Waterloo, ON",
+      description:
+        "Upcoming hackathon.",
+      image:
+        "/logos/hack-canada.svg",
+      placement: "",
+      links: [
+      ],
+    },
+    {
       title: "UOttaHack 7",
       dates: "January 17th - 19th, 2025",
       location: "Ottawa, ON",
