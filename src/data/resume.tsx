@@ -142,6 +142,7 @@ export const DATA = {
       href: "https://github.com/condyl/word-games-bot",
       dates: "January 2025 - Present",
       active: true,
+      pinned: true,
       description:
         "Created a bot to play the word games in GamePigeon.  The bot can play Word Hunt, Anagrams, and Word Bites, and gets incredibly high scores in all of them.  Completely automated, no human input required.  The bot uses OpenCV to capture the screen, EasyOCR to read the letters, and Quartz to control the mouse.",
       technologies: ["Python", "OpenCV", "EasyOCR", "Quartz"],
@@ -188,6 +189,7 @@ export const DATA = {
     {
       title: "Brock Visual Timetable",
       order: 4,
+      pinned: true,
       href: "https://brocktimetable.com",
       dates: "March 2024 - Present",
       active: true,
@@ -215,11 +217,12 @@ export const DATA = {
     {
       title: "TurboKnots Web Interface",
       order: 5,
+      pinned: true,
       href: "https://cariboutests.com/games/knots",
       dates: "May 2024 - December 2024",
       active: true,
       description:
-        "The TurboKnots web interface project modernizes Professor Thomas Wolf’s Linux-based knot theory software by creating a platform-independent, web-based interface. This interface supports real-time knot simplification, visualization, and complex calculations while accommodating multiple encoding formats like DT notation and 4-tuple encoding. It addresses accessibility challenges of the original software, enabling researchers, educators, and students to manipulate and analyze complex knots with ease. Key achievements include restoring outdated functionalities, resolving technical hurdles, and implementing advanced features like random knot generation and dynamic knot adjustments. Future improvements aim to enhance performance and scalability through optimized database handling and expanded features.",
+        "The TurboKnots web interface project modernizes Professor Thomas Wolf's Linux-based knot theory software by creating a platform-independent, web-based interface. This interface supports real-time knot simplification, visualization, and complex calculations while accommodating multiple encoding formats like DT notation and 4-tuple encoding. It addresses accessibility challenges of the original software, enabling researchers, educators, and students to manipulate and analyze complex knots with ease. Key achievements include restoring outdated functionalities, resolving technical hurdles, and implementing advanced features like random knot generation and dynamic knot adjustments. Future improvements aim to enhance performance and scalability through optimized database handling and expanded features.",
       technologies: ["JavaScript", "PHP", "SQLite", "JQuery"],
       links: [
         {
@@ -237,11 +240,12 @@ export const DATA = {
     {
       title: "Packing Game",
       order: 6,
+      pinned: true,
       href: "https://cariboutests.com/games/packing.php",
       dates: "January 2024 - April 2024",
       active: true,
       description:
-        "The Packing project at Caribou Contests transformed a vague GitHub issue into an engaging online 3D puzzle game inspired by John Conway’s “Conway Puzzle.” Using three.js, the game features a customizable grid, dynamic shape placement, and interactive gameplay, allowing players to solve puzzles by arranging 3D shapes. Over two weeks, a playable MVP was developed, followed by months of refining features like variable grid sizes, JSON-based puzzle loading, improved lighting, and enhanced UI/UX. The game was designed for flexibility, enabling future developers to easily add puzzles, and now features multiple levels, user-friendly controls, and celebratory fireworks for wins.",
+        "The Packing project at Caribou Contests transformed a vague GitHub issue into an engaging online 3D puzzle game inspired by John Conway's \"Conway Puzzle.\" Using three.js, the game features a customizable grid, dynamic shape placement, and interactive gameplay, allowing players to solve puzzles by arranging 3D shapes. Over two weeks, a playable MVP was developed, followed by months of refining features like variable grid sizes, JSON-based puzzle loading, improved lighting, and enhanced UI/UX. The game was designed for flexibility, enabling future developers to easily add puzzles, and now features multiple levels, user-friendly controls, and celebratory fireworks for wins.",
       technologies: ["JavaScript", "Three.js", "PHP", "SQL"],
       links: [
         {

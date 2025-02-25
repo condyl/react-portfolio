@@ -15,10 +15,59 @@ import Markdown from "react-markdown";
 const BLUR_FADE_DELAY = 0.04;
 const INITIAL_PROJECT_COUNT = 4;
 
+// Define the project type to include the pinned property
+interface Project {
+  title: string;
+  order?: number;
+  pinned?: boolean;
+  href?: string;
+  dates: string;
+  active?: boolean;
+  description: string;
+  technologies: readonly string[];
+  links?: readonly {
+    icon: React.ReactNode;
+    type: string;
+    href: string;
+  }[];
+  image?: string;
+  video?: string;
+  companyName?: string;
+  companyLogo?: string;
+  id: string;
+}
+
 export default function Page() {
   const [showAllProjects, setShowAllProjects] = useState(false);
 
-  const sortedProjects = [...DATA.projects].sort((a, b) => (a.order || 0) - (b.order || 0));
+  // Helper function to parse dates for sorting
+  const parseDate = (dateString: string): Date => {
+    // Extract the end date (or use the start date if it's a range)
+    const dates = dateString.split(" - ");
+    const dateToUse = dates[1] === "Present" ? new Date() : new Date(dates[dates.length - 1]);
+    return dateToUse;
+  };
+
+  // First sort by pinned status, then by date (most recent first)
+  const sortedProjects = [...DATA.projects].sort((a: Project, b: Project) => {
+    // If showing all projects, sort chronologically (most recent first)
+    if (showAllProjects) {
+      return parseDate(b.dates).getTime() - parseDate(a.dates).getTime();
+    }
+    
+    // For initial view, prioritize pinned projects
+    if (a.pinned && !b.pinned) return -1;
+    if (!a.pinned && b.pinned) return 1;
+    
+    // If both are pinned or both are not pinned, sort by order property if available
+    if (a.order !== undefined && b.order !== undefined) {
+      return a.order - b.order;
+    }
+    
+    // Otherwise sort by date (most recent first)
+    return parseDate(b.dates).getTime() - parseDate(a.dates).getTime();
+  });
+
   const visibleProjects = showAllProjects ? sortedProjects : sortedProjects.slice(0, INITIAL_PROJECT_COUNT);
 
   return (
