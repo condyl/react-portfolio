@@ -295,11 +295,21 @@ export const DATA = {
       dates: "February 21th - 23th, 2025",
       location: "Waterloo, ON",
       description:
-        "Upcoming hackathon.",
+        "Created a CLI tool to help users skip the tech stack selection & creation process.",
       image:
         "/logos/hack-canada.svg",
       placement: "",
       links: [
+        {
+          title: "GitHub", 
+          icon: <Icons.github className="size-3" />,
+          href: "https://github.com/condyl/stackmate"
+        },
+        {
+          title: "DoraHacks",
+          icon: <Icons.globe className="size-3" />,
+          href: "https://dorahacks.io/buidl/23033"
+        }
       ],
     },
     {
