@@ -115,19 +115,24 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "StackMate",
+      title: "Stackmate",
       order: 1,
       href: "https://github.com/condyl/stackmate",
       dates: "February 2025 - February 2025",
       active: true,
       description:
-        "Created a CLI tool to help users skip the tech stack selection & creation process.",
+        "Created a CLI tool to help users skip the tech stack selection & creation process. Built for Hack Canada 2025.",
       technologies: ["Python"],
       links: [
         {
           type: "GitHub",
           href: "https://github.com/condyl/stackmate",
           icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "DoraHacks",
+          href: "https://dorahacks.io/buidl/23033",
+          icon: <Icons.globe className="size-3" />,
         },
       ],
       image: "/projects/stackmate.png",
