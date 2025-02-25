@@ -115,10 +115,54 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "AI Resume Builder",
+      title: "StackMate",
       order: 1,
+      href: "https://github.com/condyl/stackmate",
+      dates: "February 2025 - February 2025",
+      active: true,
+      description:
+        "Created a CLI tool to help users skip the tech stack selection & creation process.",
+      technologies: ["Python"],
+      links: [
+        {
+          type: "GitHub",
+          href: "https://github.com/condyl/stackmate",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/projects/stackmate.png",
+      video: "",
+      companyName: "",
+      companyLogo: "",
+      id: "project_stackmate",
+    },
+    { 
+      title: "GamePigeon Word Games Bot",
+      order: 2,
+      href: "https://github.com/condyl/word-games-bot",
+      dates: "January 2025 - Present",
+      active: true,
+      description:
+        "Created a bot to play the word games in GamePigeon.  The bot can play Word Hunt, Anagrams, and Word Bites, and gets incredibly high scores in all of them.  Completely automated, no human input required.  The bot uses OpenCV to capture the screen, EasyOCR to read the letters, and Quartz to control the mouse.",
+      technologies: ["Python", "OpenCV", "EasyOCR", "Quartz"],
+      links: [
+        {
+          type: "GitHub",
+          href: "https://github.com/condyl/word-games-bot",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/projects/gamepigeon.png",
+      video: "",
+      companyName: "",
+      companyLogo: "",
+      id: "project_gamepigeon",
+    },
+    {
+      title: "AI Resume Builder",
+      order: 3,
       href: "https://resumecreator.connorbernard.com/",
-      dates: "November 2024 - Present",
+      dates: "November 2024 - January 2025",
       active: true,
       description:
         "Built a fullstack web application which allows users to easily create LaTeX resumes.  The goal was to have an easy to use interface, with a quick resume generation time.  I have also implemented Supabase for authentication and saving resumes to the cloud.  There have also been multiple user customization options added.  I have also added a \"AI dot jot improver\" which allows users to improve their dot points instantly with AI.",
@@ -143,7 +187,7 @@ export const DATA = {
     },
     {
       title: "Brock Visual Timetable",
-      order: 2,
+      order: 4,
       href: "https://brocktimetable.com",
       dates: "March 2024 - Present",
       active: true,
@@ -170,7 +214,7 @@ export const DATA = {
     },
     {
       title: "TurboKnots Web Interface",
-      order: 3,
+      order: 5,
       href: "https://cariboutests.com/games/knots",
       dates: "May 2024 - December 2024",
       active: true,
@@ -192,7 +236,7 @@ export const DATA = {
     },
     {
       title: "Packing Game",
-      order: 4,
+      order: 6,
       href: "https://cariboutests.com/games/packing.php",
       dates: "January 2024 - April 2024",
       active: true,
@@ -219,7 +263,7 @@ export const DATA = {
     },
     {
       title: "Ruby Discord Bot",
-      order: 5,
+      order: 7,
       href: "https://github.com/condyl/ruby-discord-bot",
       dates: "March 2024 - June 2024",
       active: true,
@@ -241,7 +285,7 @@ export const DATA = {
     },
     {
       title: "Terminal Portfolio",
-      order: 6,
+      order: 8,
       href: "https://terminal.connorbernard.com",
       dates: "Febuary 2024 - Febuary 2024",
       active: true,
@@ -268,7 +312,7 @@ export const DATA = {
     },
     {
       title: "Recipe Discord Bot",
-      order: 7,
+      order: 9,
       href: "https://github.com/condyl/recipe-discord-bot",
       dates: "May 2023 - May 2023",
       active: true,
