@@ -335,7 +335,7 @@ export const DATA = {
         {
           title: "DoraHacks",
           icon: <Icons.globe className="size-3" />,
-          href: "https://github.com/condyl/pitstop"
+          href: "https://dorahacks.io/buidl/21688"
         }
       ],
     },
