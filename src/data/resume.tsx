@@ -232,7 +232,7 @@ export const DATA = {
       links: [
         {
           type: "Live Demo",
-          href: "https://brocktimetable.com",
+          href: "https://cariboutests.com/games/knots",
           icon: <Icons.globe className="size-3" />,
         },
       ],
