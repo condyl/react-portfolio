@@ -1,0 +1,306 @@
+<!--
+{
+    "title": "Alternative Conway's Game of Life in 3D",
+    "summary": "3D representation of Conway's Game of Life using Three.js.",
+    "image": "",
+    "video": "/experiments/conway3dalt.mp4",
+    "publishedAt": "2025-04-10"
+}
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3D Growing Conway's Game of Life</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+        #controls {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        #speedSlider {
+            width: 200px;
+        }
+        #speedValue {
+            display: inline-block;
+            width: 50px;
+            text-align: right;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: #4CAF50;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        button.paused {
+            background: #f44336;
+        }
+        button.paused:hover {
+            background: #da190b;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <label for="speedSlider">Speed:</label>
+        <input type="range" id="speedSlider" min="50" max="1000" value="200" step="50">
+        <span id="speedValue">200ms</span>
+        <br>
+        <button id="pauseButton">Pause</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        // Scene setup
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color("#f0f0f0");
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.body.appendChild(renderer.domElement);
+
+        // Add OrbitControls
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.screenSpacePanning = false;
+        controls.minDistance = 10;
+        controls.maxDistance = 50;
+        controls.maxPolarAngle = Math.PI / 2;
+
+        // Game parameters
+        const GRID_SIZE = 40;
+        const CELL_SIZE = 1;
+        const LAYER_HEIGHT = 1;
+        let updateInterval = 200; // ms
+
+        // Speed control
+        const speedSlider = document.getElementById('speedSlider');
+        const speedValue = document.getElementById('speedValue');
+        
+        speedSlider.addEventListener('input', (e) => {
+            updateInterval = parseInt(e.target.value);
+            speedValue.textContent = updateInterval + 'ms';
+        });
+
+        // Game state
+        let currentLayer = 0;
+        let layers = [];
+        let layerMeshes = [];
+        let instanceCount = 0;
+        let isPaused = false;
+        let savedCameraPosition = null;
+        let savedCameraTarget = null;
+
+        // Create instanced geometry and material
+        const geometry = new THREE.BoxGeometry(CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        const material = new THREE.MeshPhongMaterial({ 
+            color: 0x333333,
+            transparent: false,
+            shininess: 30
+        });
+
+        // Initialize first layer
+        function initializeFirstLayer() {
+            const layer = new Set();
+            // Random initial state
+            for (let x = 0; x < GRID_SIZE; x++) {
+                for (let y = 0; y < GRID_SIZE; y++) {
+                    if (Math.random() > 0.7) {
+                        layer.add(`${x},${y}`);
+                    }
+                }
+            }
+            layers.push(layer);
+            createLayerMesh(layer, currentLayer);
+        }
+
+        // Create mesh for a layer using instancing
+        function createLayerMesh(layer, layerIndex) {
+            const instanceCount = layer.size;
+            const mesh = new THREE.InstancedMesh(geometry, material, instanceCount);
+            mesh.castShadow = true;
+            mesh.receiveShadow = true;
+            
+            const matrix = new THREE.Matrix4();
+            let instanceIndex = 0;
+            
+            layer.forEach(cell => {
+                const [x, y] = cell.split(',').map(Number);
+                matrix.setPosition(
+                    x - GRID_SIZE/2,
+                    y - GRID_SIZE/2,
+                    layerIndex * LAYER_HEIGHT
+                );
+                mesh.setMatrixAt(instanceIndex++, matrix);
+            });
+            
+            mesh.instanceMatrix.needsUpdate = true;
+            scene.add(mesh);
+            layerMeshes.push(mesh);
+        }
+
+        // Optimized neighbor calculation
+        const neighborOffsets = [
+            [-1, -1], [-1, 0], [-1, 1],
+            [0, -1],           [0, 1],
+            [1, -1],  [1, 0],  [1, 1]
+        ];
+
+        // Calculate next generation
+        function getNextGeneration(currentLayer) {
+            const nextLayer = new Set();
+            const neighbors = new Map();
+
+            // Count neighbors using pre-calculated offsets
+            currentLayer.forEach(cell => {
+                const [x, y] = cell.split(',').map(Number);
+                for (const [dx, dy] of neighborOffsets) {
+                    const nx = x + dx;
+                    const ny = y + dy;
+                    if (nx >= 0 && nx < GRID_SIZE && ny >= 0 && ny < GRID_SIZE) {
+                        const key = `${nx},${ny}`;
+                        neighbors.set(key, (neighbors.get(key) || 0) + 1);
+                    }
+                }
+            });
+
+            // Apply rules
+            currentLayer.forEach(cell => {
+                const count = neighbors.get(cell) || 0;
+                if (count === 2 || count === 3) {
+                    nextLayer.add(cell);
+                }
+            });
+
+            neighbors.forEach((count, cell) => {
+                if (count === 3 && !currentLayer.has(cell)) {
+                    nextLayer.add(cell);
+                }
+            });
+
+            return nextLayer;
+        }
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        scene.add(ambientLight);
+
+        // Main directional light (front-top-right)
+        const mainLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        mainLight.position.set(10, 20, 10);
+        scene.add(mainLight);
+
+        // Configure lights to cast shadows
+        mainLight.castShadow = true;
+        mainLight.shadow.mapSize.width = 2048;
+        mainLight.shadow.mapSize.height = 2048;
+        mainLight.shadow.camera.near = 0.5;
+        mainLight.shadow.camera.far = 500; // Increased far plane
+        mainLight.shadow.camera.left = -100; // Increased shadow area
+        mainLight.shadow.camera.right = 100;
+        mainLight.shadow.camera.top = 100;
+        mainLight.shadow.camera.bottom = -100;
+        mainLight.shadow.bias = -0.005;
+
+        // Add floor for shadows
+        const floorGeometry = new THREE.PlaneGeometry(2000, 2000); // Increased floor size
+        const floorMaterial = new THREE.ShadowMaterial({ opacity: 0.3 });
+        const floor = new THREE.Mesh(floorGeometry, floorMaterial);
+        floor.rotation.x = -Math.PI / 2;
+        floor.position.y = -15;
+        floor.receiveShadow = true;
+        scene.add(floor);
+
+        // Enable shadows with optimized settings
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        renderer.shadowMap.autoUpdate = false;
+
+        // Camera position
+        camera.position.set(0, 0, 60);
+        camera.lookAt(0, 0, 0);
+
+        // Initialize
+        initializeFirstLayer();
+
+        // Pause control
+        const pauseButton = document.getElementById('pauseButton');
+        pauseButton.addEventListener('click', () => {
+            isPaused = !isPaused;
+            pauseButton.textContent = isPaused ? 'Resume' : 'Pause';
+            pauseButton.classList.toggle('paused');
+
+            if (isPaused) {
+                // Save current camera position and target
+                savedCameraPosition = camera.position.clone();
+                savedCameraTarget = controls.target.clone();
+            } else {
+                // Restore camera to follow the growth
+                if (savedCameraPosition && savedCameraTarget) {
+                    camera.position.copy(savedCameraPosition);
+                    controls.target.copy(savedCameraTarget);
+                }
+            }
+        });
+
+        // Animation loop
+        let lastUpdate = 0;
+        function animate(time) {
+            requestAnimationFrame(animate);
+
+            // Update controls
+            controls.update();
+
+            // Update game state
+            if (!isPaused && time - lastUpdate > updateInterval) {
+                lastUpdate = time;
+                
+                // Calculate next generation
+                const nextLayer = getNextGeneration(layers[currentLayer]);
+                currentLayer++;
+                layers.push(nextLayer);
+                
+                // Create new layer mesh
+                createLayerMesh(nextLayer, currentLayer);
+                
+                // Move camera up
+                camera.position.z += LAYER_HEIGHT;
+                controls.target.z += LAYER_HEIGHT;
+
+                // Update shadow map only when needed
+                renderer.shadowMap.needsUpdate = true;
+
+                // Adjust light position to follow the growth
+                mainLight.position.z += LAYER_HEIGHT;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate(0);
+    </script>
+</body>
+</html>
+
