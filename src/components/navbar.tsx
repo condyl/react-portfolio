@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <header className="fixed top-0 z-30 w-full pt-4">
+    <header className="fixed top-0 z-30 w-full pt-4 pointer-events-none">
       <Dock className="pointer-events-auto relative mx-auto flex min-h-full h-full items-center px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_20px_80px_-20px_#ffffff1f_inset]">
         {DATA.navbar.map((item) => (
           <DockIcon key={item.href}>
