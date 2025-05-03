@@ -58,11 +58,11 @@ export const DATA = {
       company: "Shopify",
       href: "https://www.shopify.com/ca",
       badges: [],
-      title: "Incoming Software Engineer Intern",
+      title: "Software Engineer Intern",
       logoUrl: "/logos/shopify.svg",
       start: "May 2025",
       end: "August 2025",
-      description: "Incoming Summer 2025.",
+      description: "Financial Services team.",
       id: "work_shopify",
     },
     {
