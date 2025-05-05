@@ -175,11 +175,6 @@ export const DATA = {
       technologies: ["React.js", "Express.js", "TailwindCSS", "OpenAI API", "Supabase"],
       links: [
         {
-          type: "Live Demo",
-          href: "https://resumecreator.connorbernard.com/",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
           type: "GitHub",
           href: "https://github.com/condyl/resume-creator",
           icon: <Icons.github className="size-3" />,
