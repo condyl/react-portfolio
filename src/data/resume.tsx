@@ -10,7 +10,7 @@ export const DATA = {
     "https://www.google.com/maps/place/Burlington,+ON/@43.3812555,-79.8399195,11z/data=!3m1!4b1!4m6!3m5!1s0x882b63d2965d93b7:0xa44a27764c2b554f!8m2!3d43.3255196!4d-79.7990319!16zL20vMDE4ZGtf?entry=ttu&g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D",
   description:
     "Computer Science Student & Software Engineer",
-  summary: "I'm a [3rd year Computer Science student at Brock University](#education).  I've completed some cool projects like a [3D interactive math game](#project_packing) and a [web interface for a mathematical knots program](#project_knots).  I'm currently working on a [course planner](#project_brocktimetable) for Brock University students.  If I'm not coding, I'm probably rock climbing.",
+  summary: "I'm a [3rd year Computer Science student at Brock University](#education) and am currently interning at [Shopify](#work_shopify).  I've completed some cool projects like a [3D interactive math game](#project_packing) and a [web interface for a mathematical knots program](#project_knots).  I'm currently working on a [course planner](#project_brocktimetable) for Brock University students.  If I'm not coding, I'm probably rock climbing.",
   avatarUrl: "/me.webp",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -62,7 +62,7 @@ export const DATA = {
       logoUrl: "/logos/shopify.svg",
       start: "May 2025",
       end: "August 2025",
-      description: "Financial Services team.",
+      description: "Big Middle team. Working on Shopify Plus.",
       id: "work_shopify",
     },
     {
