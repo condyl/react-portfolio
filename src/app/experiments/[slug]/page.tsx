@@ -21,7 +21,7 @@ export default async function ExperimentPage({
     return (
         <section id="experiment">
             <h1
-                className="title font-medium text-2xl tracking-tighter max-w-[650px] flex items-center"
+                className="title font-medium text-2xl tracking-tighter max-w-[650px] flex items-center font-sans"
                 style={{ position: "absolute", top: 25, left: 20, color: "black" }}
             >
                 {experiment.metadata.title}{" "}
