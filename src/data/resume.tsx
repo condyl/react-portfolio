@@ -347,6 +347,8 @@ export const DATA = {
       image:
         "/logos/hackdays38.png",
       placement: "",
+      links: [
+      ],
     },
     {
       title: "Hack Canada 2025",
