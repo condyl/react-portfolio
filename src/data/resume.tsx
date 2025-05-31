@@ -339,6 +339,15 @@ export const DATA = {
   ],
   hackathons: [
     {
+      title: "Shopify Hack Days 38",
+      dates: "May 28th - 30th, 2025",
+      location: "Toronto, ON",
+      description:
+        "Created a 3D mall world using React Three Fiber where users can walk around and explore different Shop.app stores.",
+      image:
+        "/logos/hackdays38.png",
+    },
+    {
       title: "Hack Canada 2025",
       dates: "February 21th - 23th, 2025",
       location: "Waterloo, ON",
