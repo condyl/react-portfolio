@@ -346,6 +346,7 @@ export const DATA = {
         "Created a 3D mall world using React Three Fiber where users can walk around and explore different Shop.app stores.",
       image:
         "/logos/hackdays38.png",
+      placement: "",
     },
     {
       title: "Hack Canada 2025",
