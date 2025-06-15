@@ -110,7 +110,7 @@ export const DATA = {
       start: "2022",
       end: "2026",
       id: "education_brocku",
-      description: "82% overall average.  82% major average.  3rd year Computer Science student.",
+      description: "82% overall average.  84% major average.  3rd year Computer Science student.",
     },
   ],
   projects: [
