@@ -218,7 +218,7 @@ export const DATA = {
       title: "TurboKnots Web Interface",
       order: 5,
       pinned: true,
-      href: "https://cariboutests.com/games/knots",
+      href: "https://test.cariboutests.com/games/knots",
       dates: "May 2024 - December 2024",
       active: true,
       description:
@@ -227,7 +227,7 @@ export const DATA = {
       links: [
         {
           type: "Live Demo",
-          href: "https://cariboutests.com/games/knots",
+          href: "https://test.cariboutests.com/games/knots",
           icon: <Icons.globe className="size-3" />,
         },
       ],
