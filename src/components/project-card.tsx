@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import { useTheme } from "next-themes";
 
 interface Props {
   title: string;
@@ -34,7 +35,7 @@ interface Props {
   }[];
   className?: string;
   companyName?: string;
-  companyLogo?: string;
+  companyLogo?: string | { light: string; dark: string };
   id: string;
 }
 
@@ -53,6 +54,18 @@ export function ProjectCard({
   companyLogo,
   id,
 }: Props) {
+  const { theme } = useTheme();
+
+  // Determine which company logo to use based on theme
+  const getCompanyLogoUrl = () => {
+    if (!companyLogo) return "";
+    if (typeof companyLogo === 'string') {
+      return companyLogo;
+    }
+    // If theme is dark or system with dark preference, use dark logo
+    return theme === 'dark' ? companyLogo.dark : companyLogo.light;
+  };
+
   return (
     <MorphingDialog
       id={id}
@@ -92,7 +105,7 @@ export function ProjectCard({
             </div>
             {companyName && companyLogo && (
               <Image
-                src={companyLogo}
+                src={getCompanyLogoUrl()}
                 alt={`${companyName} logo`}
                 width={32}
                 height={32}
@@ -187,7 +200,7 @@ export function ProjectCard({
               {companyName && companyLogo && (
                 <div className="flex items-center space-x-2">
                   <Image
-                    src={companyLogo}
+                    src={getCompanyLogoUrl()}
                     alt={`${companyName} logo`}
                     width={24}
                     height={24}

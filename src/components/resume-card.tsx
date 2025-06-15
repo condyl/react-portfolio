@@ -14,9 +14,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Markdown from "react-markdown";
+import { useTheme } from "next-themes";
 
 interface ResumeCardProps {
-  logoUrl: string;
+  logoUrl: string | { light: string; dark: string };
   altText: string;
   title: string;
   subtitle?: string;
@@ -41,6 +42,16 @@ export const ResumeCard = ({
   id,
 }: ResumeCardProps) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
+  const { theme } = useTheme();
+
+  // Determine which logo to use based on theme
+  const getLogoUrl = () => {
+    if (typeof logoUrl === 'string') {
+      return logoUrl;
+    }
+    // If theme is dark or system with dark preference, use dark logo
+    return theme === 'dark' ? logoUrl.dark : logoUrl.light;
+  };
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     if (description) {
@@ -66,7 +77,7 @@ export const ResumeCard = ({
         >
           <div className="relative h-24 w-24 px-3 py-4">
             <Image
-              src={logoUrl}
+              src={getLogoUrl()}
               alt={altText}
               fill
               className="object-contain"

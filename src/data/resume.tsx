@@ -66,6 +66,20 @@ export const DATA = {
       id: "work_shopify",
     },
     {
+      company: "Brock Computer Science Club",
+      href: "https://brockcsc.ca",
+      badges: [],
+      title: "Club Executive & Software Developer",
+      logoUrl: {
+        light: "/logos/brockcsc-light.svg",
+        dark: "/logos/brockcsc-dark.svg"
+      },
+      start: "January 2025",
+      end: "Present",
+      description: "Built the frontend of the club's merch store.  Helped plan & host club events and workshops.",
+      id: "work_brockcsc",
+    },
+    {
       company: "Sun Life",
       href: "https://www.sunlife.ca/en/",
       badges: [],
