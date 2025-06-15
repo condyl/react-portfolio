@@ -24,6 +24,7 @@ interface ResumeCardProps {
   badges?: readonly string[];
   period: string;
   description?: string;
+  imageBackgroundColor?: string;
   id: string;
 }
 
@@ -36,6 +37,7 @@ export const ResumeCard = ({
   badges,
   period,
   description,
+  imageBackgroundColor,
   id,
 }: ResumeCardProps) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
@@ -55,7 +57,13 @@ export const ResumeCard = ({
       id={id}
     >
       <Card className="flex overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out">
-        <div className="w-24 shrink-0 bg-muted flex items-center">
+        <div 
+          className={cn(
+            "w-24 shrink-0 flex items-center",
+            imageBackgroundColor ? "" : "bg-muted"
+          )}
+          style={imageBackgroundColor ? { backgroundColor: imageBackgroundColor } : undefined}
+        >
           <div className="relative h-24 w-24 px-3 py-4">
             <Image
               src={logoUrl}

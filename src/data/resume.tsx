@@ -86,6 +86,7 @@ export const DATA = {
       end: "December 2024",
       description:
         'Developed a web interface for a mathematical knots program "TurboKnots" using PHP and JavaScript.  Improved performance of the program by 90% by implementing a SQLite database.',
+      imageBackgroundColor: "#CD0002",
       id: "work_brocku",
     },
     {
@@ -111,6 +112,7 @@ export const DATA = {
       end: "2026",
       id: "education_brocku",
       description: "82% overall average.  84% major average.  3rd year Computer Science student.",
+      imageBackgroundColor: "#CD0002",
     },
   ],
   projects: [

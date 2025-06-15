@@ -106,6 +106,7 @@ export default function Page() {
                   badges={work.badges}
                   period={`${work.start} - ${work.end ?? "Present"}`}
                   description={work.description}
+                  imageBackgroundColor={work.imageBackgroundColor}
                   id={work.id}
                 />
               </BlurFade>
@@ -133,6 +134,7 @@ export default function Page() {
                   period={`${education.start} - ${education.end}`}
                   id={education.id}
                   description={education.description}
+                  imageBackgroundColor={education.imageBackgroundColor}
                 />
               </BlurFade>
             ))}
