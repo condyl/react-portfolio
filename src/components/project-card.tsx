@@ -81,26 +81,25 @@ export function ProjectCard({
           />
         )}
         <div className="flex flex-col p-4">
-          <MorphingDialogTitle className="text-lg font-semibold">
-            {title}
-          </MorphingDialogTitle>
-          <MorphingDialogSubtitle className="font-sans text-xs text-muted-foreground">
-            {dates}
-          </MorphingDialogSubtitle>
-          {companyName && companyLogo && (
-            <div className="mt-4 flex items-center space-x-2">
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col">
+              <MorphingDialogTitle className="text-lg font-semibold">
+                {title}
+              </MorphingDialogTitle>
+              <MorphingDialogSubtitle className="font-sans text-xs text-muted-foreground">
+                {dates}
+              </MorphingDialogSubtitle>
+            </div>
+            {companyName && companyLogo && (
               <Image
                 src={companyLogo}
                 alt={`${companyName} logo`}
-                width={24}
-                height={24}
-                className="object-contain"
+                width={32}
+                height={32}
+                className="object-contain flex-shrink-0"
               />
-              <span className="text-xs text-muted-foreground">
-                Affiliated with {companyName}
-              </span>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </MorphingDialogTrigger>
 
