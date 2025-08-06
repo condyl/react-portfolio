@@ -1,5 +1,11 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon, TerminalIcon, FileTextIcon, LightbulbIcon } from "lucide-react";
+import {
+  HomeIcon,
+  NotebookIcon,
+  TerminalIcon,
+  FileTextIcon,
+  LightbulbIcon,
+} from "lucide-react";
 
 export const DATA = {
   name: "Connor Bernard",
@@ -8,13 +14,17 @@ export const DATA = {
   location: "Burlington, ON",
   locationLink:
     "https://www.google.com/maps/place/Burlington,+ON/@43.3812555,-79.8399195,11z/data=!3m1!4b1!4m6!3m5!1s0x882b63d2965d93b7:0xa44a27764c2b554f!8m2!3d43.3255196!4d-79.7990319!16zL20vMDE4ZGtf?entry=ttu&g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D",
-  description:
-    "Computer Science Student & Software Engineer",
-  summary: "I'm a [3rd year Computer Science student at Brock University](#education) and am currently interning at [Shopify](#work_shopify).  I've completed some cool projects like a [3D interactive math game](#project_packing) and a [web interface for a mathematical knots program](#project_knots).  I'm currently working on a [course planner](#project_brocktimetable) for Brock University students.  If I'm not coding, I'm probably rock climbing.",
+  description: "Computer Science Student & Software Engineer",
+  summary:
+    "I'm a [3rd year Computer Science student at Brock University](#education) and am currently interning at [Shopify](#work_shopify).  I've completed some cool projects like a [3D interactive math game](#project_packing) and a [web interface for a mathematical knots program](#project_knots).  I'm currently working on a [course planner](#project_brocktimetable) for Brock University students.  If I'm not coding, I'm probably rock climbing.",
   avatarUrl: "/me.webp",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "https://notes.connorbernard.com", icon: NotebookIcon, label: "Notes & Blog" },
+    {
+      href: "https://notes.connorbernard.com",
+      icon: NotebookIcon,
+      label: "Notes & Blog",
+    },
     { href: "/experiments", icon: LightbulbIcon, label: "Experiments" },
   ],
   contact: {
@@ -72,11 +82,12 @@ export const DATA = {
       title: "Club Executive & Software Developer",
       logoUrl: {
         light: "/logos/brockcsc-light.svg",
-        dark: "/logos/brockcsc-dark.svg"
+        dark: "/logos/brockcsc-dark.svg",
       },
       start: "January 2025",
       end: "Present",
-      description: "Built the frontend of the club's merch store.  Helped plan & host club events and workshops.",
+      description:
+        "Built the frontend of the club's merch store.  Helped plan & host club events and workshops.",
       id: "work_brockcsc",
     },
     {
@@ -87,7 +98,8 @@ export const DATA = {
       logoUrl: "/logos/sunlife.png",
       start: "September 2024",
       end: "December 2024",
-      description: "Won 1st place in Sun Life's Elevate CloudTech Hackathon.  Developed internal tools using Java and Adobe Experience Manager.",
+      description:
+        "Won 1st place in Sun Life's Elevate CloudTech Hackathon.  Developed internal tools using Java and Adobe Experience Manager.",
       id: "work_sunlife",
     },
     {
@@ -125,7 +137,8 @@ export const DATA = {
       start: "2022",
       end: "2026",
       id: "education_brocku",
-      description: "82% overall average.  84% major average.  3rd year Computer Science student.",
+      description:
+        "82% overall average.  84% major average.  3rd year Computer Science student.",
       imageBackgroundColor: "#CD0002",
     },
   ],
@@ -157,7 +170,7 @@ export const DATA = {
       companyLogo: "",
       id: "project_stackmate",
     },
-    { 
+    {
       title: "GamePigeon Word Games Bot",
       order: 2,
       href: "https://github.com/condyl/word-games-bot",
@@ -187,8 +200,14 @@ export const DATA = {
       dates: "November 2024 - January 2025",
       active: true,
       description:
-        "Built a fullstack web application which allows users to easily create LaTeX resumes.  The goal was to have an easy to use interface, with a quick resume generation time.  I have also implemented Supabase for authentication and saving resumes to the cloud.  There have also been multiple user customization options added.  I have also added a \"AI dot jot improver\" which allows users to improve their dot points instantly with AI.",
-      technologies: ["React.js", "Express.js", "TailwindCSS", "OpenAI API", "Supabase"],
+        'Built a fullstack web application which allows users to easily create LaTeX resumes.  The goal was to have an easy to use interface, with a quick resume generation time.  I have also implemented Supabase for authentication and saving resumes to the cloud.  There have also been multiple user customization options added.  I have also added a "AI dot jot improver" which allows users to improve their dot points instantly with AI.',
+      technologies: [
+        "React.js",
+        "Express.js",
+        "TailwindCSS",
+        "OpenAI API",
+        "Supabase",
+      ],
       links: [
         {
           type: "GitHub",
@@ -210,7 +229,7 @@ export const DATA = {
       dates: "May 2024 - December 2024",
       active: true,
       description:
-      "The TurboKnots web interface project modernizes Professor Thomas Wolf's Linux-based knot theory software by creating a platform-independent, web-based interface. This interface supports real-time knot simplification, visualization, and complex calculations while accommodating multiple encoding formats like DT notation and 4-tuple encoding. It addresses accessibility challenges of the original software, enabling researchers, educators, and students to manipulate and analyze complex knots with ease. Key achievements include restoring outdated functionalities, resolving technical hurdles, and implementing advanced features like random knot generation and dynamic knot adjustments. Future improvements aim to enhance performance and scalability through optimized database handling and expanded features.",
+        "The TurboKnots web interface project modernizes Professor Thomas Wolf's Linux-based knot theory software by creating a platform-independent, web-based interface. This interface supports real-time knot simplification, visualization, and complex calculations while accommodating multiple encoding formats like DT notation and 4-tuple encoding. It addresses accessibility challenges of the original software, enabling researchers, educators, and students to manipulate and analyze complex knots with ease. Key achievements include restoring outdated functionalities, resolving technical hurdles, and implementing advanced features like random knot generation and dynamic knot adjustments. Future improvements aim to enhance performance and scalability through optimized database handling and expanded features.",
       technologies: ["JavaScript", "PHP", "SQLite", "JQuery"],
       links: [
         {
@@ -233,7 +252,7 @@ export const DATA = {
       dates: "March 2024 - Present",
       active: true,
       description:
-      "Created an interactive course planner for Brock University students to easily plan their courses and generate a timetable.  The goal was to make course planning simple, as opposed to the current PDF of a timetable so you can plan it on paper.  This tool lets users input their courses and view all available combinations of courses.  There have also been many quality of life features added, such as being able to block out time for other activities, easily sort schedules by time spent waiting, minimum number of days in class, and more.",
+        "Created an interactive course planner for Brock University students to easily plan their courses and generate a timetable.  The goal was to make course planning simple, as opposed to the current PDF of a timetable so you can plan it on paper.  This tool lets users input their courses and view all available combinations of courses.  There have also been many quality of life features added, such as being able to block out time for other activities, easily sort schedules by time spent waiting, minimum number of days in class, and more.",
       technologies: ["JavaScript", "React.js", "Express.js", "MaterialUI"],
       links: [
         {
@@ -260,7 +279,7 @@ export const DATA = {
       dates: "March 2024 - June 2024",
       active: true,
       description:
-      "Created a Discord bot which allows users to display Valorant stats, recent matches, and more.",
+        "Created a Discord bot which allows users to display Valorant stats, recent matches, and more.",
       technologies: ["JavaScript", "Discord.js"],
       links: [
         {
@@ -283,7 +302,7 @@ export const DATA = {
       dates: "January 2024 - April 2024",
       active: true,
       description:
-        "The Packing project at Caribou Contests transformed a vague GitHub issue into an engaging online 3D puzzle game inspired by John Conway's \"Conway Puzzle.\" Using three.js, the game features a customizable grid, dynamic shape placement, and interactive gameplay, allowing players to solve puzzles by arranging 3D shapes. Over two weeks, a playable MVP was developed, followed by months of refining features like variable grid sizes, JSON-based puzzle loading, improved lighting, and enhanced UI/UX. The game was designed for flexibility, enabling future developers to easily add puzzles, and now features multiple levels, user-friendly controls, and celebratory fireworks for wins.",
+        'The Packing project at Caribou Contests transformed a vague GitHub issue into an engaging online 3D puzzle game inspired by John Conway\'s "Conway Puzzle." Using three.js, the game features a customizable grid, dynamic shape placement, and interactive gameplay, allowing players to solve puzzles by arranging 3D shapes. Over two weeks, a playable MVP was developed, followed by months of refining features like variable grid sizes, JSON-based puzzle loading, improved lighting, and enhanced UI/UX. The game was designed for flexibility, enabling future developers to easily add puzzles, and now features multiple levels, user-friendly controls, and celebratory fireworks for wins.',
       technologies: ["JavaScript", "Three.js", "PHP", "SQL"],
       links: [
         {
@@ -295,7 +314,7 @@ export const DATA = {
           type: "Blog Post",
           href: "https://notes.connorbernard.com/work/caribou-contests/Packing",
           icon: <NotebookIcon className="size-3" />,
-        }
+        },
       ],
       image: "/projects/packing.png",
       video: "",
@@ -355,16 +374,35 @@ export const DATA = {
   ],
   hackathons: [
     {
+      title: "TerraHacks 2025",
+      dates: "April 1st - 3rd, 2025",
+      location: "Toronto, ON",
+      description:
+        "Created a healthcare chatbot resembling Big Hero 6's Baymax.",
+      image: "/logos/terrahacks.jpeg",
+      placement: "",
+      links: [
+        {
+          title: "GitHub",
+          icon: <Icons.github className="size-3" />,
+          href: "https://github.com/condyl/terrahacks2025-2",
+        },
+        {
+          title: "Devpost",
+          icon: <Icons.globe className="size-3" />,
+          href: "https://devpost.com/software/baymax-lite?ref_content=user-portfolio&ref_feature=in_progress",
+        },
+      ],
+    },
+    {
       title: "Shopify Hack Days 38",
       dates: "May 28th - 30th, 2025",
       location: "Toronto, ON",
       description:
         "Created a 3D mall world using React Three Fiber where users can walk around and explore different Shop.app stores.",
-      image:
-        "/logos/hackdays38.png",
+      image: "/logos/hackdays38.png",
       placement: "",
-      links: [
-      ],
+      links: [],
     },
     {
       title: "Hack Canada 2025",
@@ -372,20 +410,19 @@ export const DATA = {
       location: "Waterloo, ON",
       description:
         "Created a CLI tool to help users skip the tech stack selection & creation process.",
-      image:
-        "/logos/hack-canada.svg",
+      image: "/logos/hack-canada.svg",
       placement: "",
       links: [
         {
-          title: "GitHub", 
+          title: "GitHub",
           icon: <Icons.github className="size-3" />,
-          href: "https://github.com/condyl/stackmate"
+          href: "https://github.com/condyl/stackmate",
         },
         {
           title: "DoraHacks",
           icon: <Icons.globe className="size-3" />,
-          href: "https://dorahacks.io/buidl/23033"
-        }
+          href: "https://dorahacks.io/buidl/23033",
+        },
       ],
     },
     {
@@ -394,38 +431,34 @@ export const DATA = {
       location: "Ottawa, ON",
       description:
         "Built a webapp to help users find & book parking spots. Experimented with computer vision & object recognition to streamline user input.",
-      image:
-        "/logos/uottahack7.png",
+      image: "/logos/uottahack7.png",
       placement: "",
       links: [
         {
           title: "Live Demo",
           icon: <Icons.globe className="size-3" />,
-          href: "https://usepitstop.gadget.app/"
+          href: "https://usepitstop.gadget.app/",
         },
         {
-          title: "GitHub", 
+          title: "GitHub",
           icon: <Icons.github className="size-3" />,
-          href: "https://github.com/condyl/pitstop"
+          href: "https://github.com/condyl/pitstop",
         },
         {
           title: "DoraHacks",
           icon: <Icons.globe className="size-3" />,
-          href: "https://dorahacks.io/buidl/21688"
-        }
+          href: "https://dorahacks.io/buidl/21688",
+        },
       ],
     },
     {
       title: "Sun Life's Fall 2024 CI Challenge",
       dates: "December 4, 2024",
       location: "Toronto, ON",
-      description:
-        "Pitched a new productivity tool to Sun Life executives.",
-      image:
-        "/logos/sunlife.png",
+      description: "Pitched a new productivity tool to Sun Life executives.",
+      image: "/logos/sunlife.png",
       placement: "",
-      links: [
-      ],
+      links: [],
     },
     {
       title: "Sun Life's Elevate CloudTech Hackathon",
@@ -433,14 +466,13 @@ export const DATA = {
       location: "Toronto, ON",
       description:
         "Created an Amazon Q chat bot to help users find and consume documentation faster.",
-      image:
-        "/logos/sunlife.png",
+      image: "/logos/sunlife.png",
       placement: 1,
       links: [
         {
           title: "Blog Post",
           icon: <NotebookIcon className="size-3" />,
-          href: "https://notes.connorbernard.com/work/sun-life/weekly-recaps/week10"
+          href: "https://notes.connorbernard.com/work/sun-life/weekly-recaps/week10",
         },
       ],
     },
