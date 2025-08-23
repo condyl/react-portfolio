@@ -16,7 +16,7 @@ export const DATA = {
     "https://www.google.com/maps/place/Burlington,+ON/@43.3812555,-79.8399195,11z/data=!3m1!4b1!4m6!3m5!1s0x882b63d2965d93b7:0xa44a27764c2b554f!8m2!3d43.3255196!4d-79.7990319!16zL20vMDE4ZGtf?entry=ttu&g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D",
   description: "Computer Science Student & Software Engineer",
   summary:
-    "I'm a [3rd year Computer Science student at Brock University](#education) and am currently interning at [Shopify](#work_shopify).  I've completed some cool projects like a [3D interactive math game](#project_packing) and a [web interface for a mathematical knots program](#project_knots).  I'm currently working on a [course planner](#project_brocktimetable) for Brock University students.  If I'm not coding, I'm probably rock climbing.",
+    "4th year Computer Science student at [Brock University](#education) with hands-on experience from internships at [Shopify](#work_shopify), [Sun Life](#work_sunlife), and [Caribou Contests](#work_caribou). Built diverse projects including a [3D interactive math game](#project_packing), [web interface for mathematical knots](#project_knots), and [course planner](#project_brocktimetable) for students. When not coding, you'll find me rock climbing.",
   avatarUrl: "/me.webp",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -65,6 +65,19 @@ export const DATA = {
 
   work: [
     {
+      company: "Brock Computer Science Club",
+      href: "https://brockcsc.ca",
+      badges: [],
+      title: "Club Executive & Software Developer",
+      logoUrl: "/logos/brockcsc.png",
+      start: "January 2025",
+      end: "Present",
+      description:
+        "Built the frontend of the club's merch store.  Helped plan & host club events and workshops.",
+      imageBackgroundColor: "#8E2B2A",
+      id: "work_brockcsc",
+    },
+    {
       company: "Shopify",
       href: "https://www.shopify.com/ca",
       badges: [],
@@ -74,21 +87,6 @@ export const DATA = {
       end: "August 2025",
       description: "Big Middle team. Working on Shopify Plus.",
       id: "work_shopify",
-    },
-    {
-      company: "Brock Computer Science Club",
-      href: "https://brockcsc.ca",
-      badges: [],
-      title: "Club Executive & Software Developer",
-      logoUrl: {
-        light: "/logos/brockcsc-light.svg",
-        dark: "/logos/brockcsc-dark.svg",
-      },
-      start: "January 2025",
-      end: "Present",
-      description:
-        "Built the frontend of the club's merch store.  Helped plan & host club events and workshops.",
-      id: "work_brockcsc",
     },
     {
       company: "Sun Life",
