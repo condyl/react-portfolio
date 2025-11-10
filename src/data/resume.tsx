@@ -372,6 +372,16 @@ export const DATA = {
   ],
   hackathons: [
     {
+      title: "ICPC NA East Division 2025",
+      dates: "November 8th - 9th, 2025",
+      location: "Windsor, ON",
+      description:
+        "Competed in the ICPC NA East Division 2025.",
+      image: "/logos/icpc.png",
+      placement: "",
+      links: [],
+    },
+    {
       title: "TerraHacks 2025",
       dates: "April 1st - 3rd, 2025",
       location: "Toronto, ON",
