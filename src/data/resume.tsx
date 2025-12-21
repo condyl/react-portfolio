@@ -383,7 +383,7 @@ export const DATA = {
     },
     {
       title: "TerraHacks 2025",
-      dates: "April 1st - 3rd, 2025",
+      dates: "August 1st - 3rd, 2025",
       location: "Toronto, ON",
       description:
         "Created a healthcare chatbot resembling Big Hero 6's Baymax.",
